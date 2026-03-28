@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://b1qr3gehd25ry"]
 
 [ext_resource type="Script" uid="uid://coxwtjffndt64" path="res://scripts/gas_station.gd" id="1_h7ese"]
+[ext_resource type="Material" uid="uid://utrwrlx3w6dq" path="res://resources/materials/zone_material.tres" id="2_jwdhq"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ql7fd"]
 albedo_color = Color(0, 0, 0, 1)
@@ -15,8 +16,12 @@ size = Vector3(5, 2, 5)
 [sub_resource type="BoxMesh" id="BoxMesh_jwdhq"]
 size = Vector3(0.2, 0.4, 0.1)
 
+[sub_resource type="CylinderMesh" id="CylinderMesh_6hev2"]
+material = ExtResource("2_jwdhq")
+height = 100.0
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_jwdhq"]
-size = Vector3(1.295105, 0.50891113, 0.9091797)
+size = Vector3(1, 2, 1)
 
 [node name="gas_station" type="Node3D" unique_id=497510875]
 script = ExtResource("1_h7ese")
@@ -35,8 +40,12 @@ mesh = SubResource("BoxMesh_jwdhq")
 
 [node name="pump_area" type="Area3D" parent="." unique_id=998508788]
 
-[node name="pump_area_shape" type="CollisionShape3D" parent="pump_area" unique_id=1381658670]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5459269, 0.24554443, -0.9052547)
+[node name="MeshInstance3D" type="MeshInstance3D" parent="pump_area" unique_id=2116097165]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.593, 50, -0.876)
+mesh = SubResource("CylinderMesh_6hev2")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="pump_area" unique_id=1142943130]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.593, 0.99571943, -0.876)
 shape = SubResource("BoxShape3D_jwdhq")
 
 [connection signal="body_entered" from="pump_area" to="." method="_on_area_3d_body_entered"]

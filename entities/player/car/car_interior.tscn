@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://b3q2clbccejnt"]
+
+[ext_resource type="Script" uid="uid://bdehdmmi1j24q" path="res://entities/player/car/car_interior_controller.gd" id="1_cvfft"]
+[ext_resource type="PackedScene" uid="uid://dw2wf27ht0e1u" path="res://resources/glb/car_interior.glb" id="2_gb7yy"]
+[ext_resource type="PackedScene" uid="uid://cjj2dm4prukpm" path="res://resources/glb/car_wheel.glb" id="3_hmpo2"]
+[ext_resource type="PackedScene" uid="uid://dyqb5sj8iq4qt" path="res://resources/glb/phone.glb" id="4_qko6y"]
+
+[node name="CarInterior" type="Node3D" unique_id=678647663]
+script = ExtResource("1_cvfft")
+
+[node name="car_interior" parent="." unique_id=582317999 instance=ExtResource("2_gb7yy")]
+
+[node name="car_wheel" parent="." unique_id=1241523602 instance=ExtResource("3_hmpo2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.16739835, 0.34647408, 0.28012174)
+
+[node name="phone" parent="." unique_id=497349082 instance=ExtResource("4_qko6y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.050709486, 0.35379392, 0.27336156)

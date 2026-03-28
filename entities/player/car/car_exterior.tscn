@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://cgpnr6pcniiqn"]
+
+[ext_resource type="Script" uid="uid://c1nkjus5j6glr" path="res://entities/player/car/car_exterior_controller.gd" id="1_h77aa"]
+[ext_resource type="PackedScene" uid="uid://byqj2m6jeb5tv" path="res://resources/glb/car_exterior.glb" id="2_o4hcl"]
+
+[node name="CarExterior" type="Node3D" unique_id=1499704476]
+script = ExtResource("1_h77aa")
+
+[node name="car_exterior" parent="." unique_id=583354728 instance=ExtResource("2_o4hcl")]

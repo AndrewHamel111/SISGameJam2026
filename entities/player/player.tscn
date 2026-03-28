@@ -18,15 +18,16 @@ car_acceleration_curve = SubResource("Curve_sglur")
 metadata/_custom_type_script = "uid://dtxuvpfea4hmd"
 
 [node name="InteriorRoot" type="Node3D" parent="." unique_id=2067602428]
-visible = false
 
 [node name="CarInterior" parent="InteriorRoot" unique_id=678647663 instance=ExtResource("1_abrql")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.2874603e-05, 0.002041459, 0.0002937913)
 
 [node name="CameraInterior" type="Camera3D" parent="InteriorRoot" unique_id=6072620]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0.17214024, 0.491939, -0.046283633)
+current = true
 
 [node name="ExteriorRoot" type="Node3D" parent="." unique_id=174343180]
+visible = false
 
 [node name="CarExterior" parent="ExteriorRoot" unique_id=1499704476 instance=ExtResource("2_sglur")]
 
@@ -34,7 +35,6 @@ transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0.17
 
 [node name="CameraExterior" type="Camera3D" parent="ExteriorRoot/CameraExteriorRoot" unique_id=1244619972]
 transform = Transform3D(-1, -1.7763568e-15, -8.742278e-08, -1.6445838e-08, 0.9821464, 0.18811847, 8.5861956e-08, 0.18811847, -0.9821464, 0, 2.3398886, -3.1461935)
-current = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1245159616]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.1035156e-05, 0.29727173, -0.0017700195)

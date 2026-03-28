@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="HandLibrary" format=3 uid="uid://cfeggiukwcg7c"]
 
-[ext_resource type="Script" uid="uid://wlajjqhy35mx" path="res://scripts/hand_library.gd" id="1_el6vk"]
+[ext_resource type="Script" path="res://scripts/hand_library.gd" id="1_el6vk"]
 [ext_resource type="Texture2D" uid="uid://d014b3wcrfgeh" path="res://resources/png/hand_orders/bottom_back.png" id="1_hnsch"]
 [ext_resource type="Texture2D" uid="uid://dlvqm4e50jdug" path="res://resources/png/hand_orders/bottom_front.png" id="2_r3tb8"]
 [ext_resource type="Texture2D" uid="uid://htfpd6hx2gd" path="res://resources/png/hand_orders/middle_back.png" id="3_3illi"]

@@ -8,7 +8,7 @@ extends CharacterBody3D
 @onready var camera_exterior_root: Node3D = $ExteriorRoot/CameraExteriorRoot
 @onready var camera_interior: Camera3D = $InteriorRoot/CameraInterior
 
-var camera_mode: bool = true
+var camera_mode: bool = false
 var hud: HUDController
 
 # phone control
@@ -24,11 +24,17 @@ const CAR_MAX_SPEED := 25.0
 var forward_velocity := 0.0
 var turn_angle := 0.0
 
+# gas
+var gas_remaining := 20.0
+var gas_max := 20.0
+var gas_usage_rate := 1.1
+
+
 @export var car_acceleration_curve: Curve
 
 func _ready() -> void:
 	hud = get_node("/root/World/CanvasLayer/HUD") as HUDController
-
+	
 func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("camera_toggle"):
 		toggle_camera_mode()
@@ -72,6 +78,7 @@ func _physics_process(delta: float) -> void:
 	hud.set_speed(roundi(lerpf(0, 50, forward_velocity / CAR_MAX_SPEED)))
 	velocity = basis * Vector3(0, 0, 1) * forward_velocity
 	move_and_slide()
+	deal_with_gas(delta)
 
 func toggle_camera_mode() -> void:
 	camera_mode = not camera_mode
@@ -79,3 +86,14 @@ func toggle_camera_mode() -> void:
 	interior_root.visible = not camera_mode
 	camera_exterior.current = camera_mode
 	exterior_root.visible = camera_mode
+
+func deal_with_gas(delta: float) -> void:
+	var gas_velocity : float = forward_velocity
+	if gas_velocity > Player.CAR_MAX_SPEED:
+		gas_velocity = Player.CAR_MAX_SPEED
+
+	var velocity_perc : float = gas_velocity / CAR_MAX_SPEED
+
+	gas_remaining -= gas_usage_rate * delta * velocity_perc
+	if gas_remaining < 0:
+		gas_remaining = 0

@@ -4,6 +4,14 @@
 [ext_resource type="PackedScene" uid="uid://dw2wf27ht0e1u" path="res://resources/glb/car_interior.glb" id="2_gb7yy"]
 [ext_resource type="PackedScene" uid="uid://cjj2dm4prukpm" path="res://resources/glb/car_wheel.glb" id="3_hmpo2"]
 [ext_resource type="PackedScene" uid="uid://dyqb5sj8iq4qt" path="res://resources/glb/phone.glb" id="4_qko6y"]
+[ext_resource type="Script" uid="uid://c4mpw0y112x0w" path="res://entities/player/car/gas_needle.gd" id="5_gb7yy"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hmpo2"]
+albedo_color = Color(1, 0, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_qko6y"]
+material = SubResource("StandardMaterial3D_hmpo2")
+size = Vector3(0.01, 0.05, 0.01)
 
 [node name="CarInterior" type="Node3D" unique_id=678647663]
 script = ExtResource("1_cvfft")
@@ -15,3 +23,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.16739835, 0.34647408, 0.280
 
 [node name="phone" parent="." unique_id=497349082 instance=ExtResource("4_qko6y")]
 transform = Transform3D(0.8059898, -0.13447852, -0.5764512, -0.078314915, 0.9410639, -0.32903725, 0.58672583, 0.31034538, 0.7479562, -0.025569137, 0.3887328, 0.17616011)
+
+[node name="gas_needle" type="Node3D" parent="." unique_id=1855330199]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.37186986, 0.36518043, 0.32688832)
+script = ExtResource("5_gb7yy")
+
+[node name="needle_mesh" type="MeshInstance3D" parent="gas_needle" unique_id=984127136]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.025, 0)
+mesh = SubResource("BoxMesh_qko6y")

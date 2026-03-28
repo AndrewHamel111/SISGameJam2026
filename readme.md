@@ -9,3 +9,16 @@
 ![image-20260327203516224](images/image-20260327203516224.png)
 
 ![image-20260327203819549](images/image-20260327203819549.png)
+
+## TODO
+
+- [ ] improve car controls
+  - [ ] car should stop / lose speed when hitting obstacles
+  - [ ] car should move considerably slower when not on roads
+  - [ ] car turning doesn't feel satisfying
+- [ ] improve car visuals
+  - [ ] car wheels should turn, camera turning should also feel better
+- [ ] interior view improvements
+  - [ ] wheel should turn
+  - [ ] drivers side door should have window lol
+

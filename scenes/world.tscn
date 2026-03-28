@@ -109,6 +109,23 @@ transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -28,
 [node name="road_tile_3int" parent="ground/road_layer" unique_id=352143354 instance=ExtResource("3_71j4m")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0, 28)
 
+[node name="buildings" type="Node3D" parent="." unique_id=629702259]
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="buildings" unique_id=129189822]
+use_collision = true
+
+[node name="CSGBox3D" type="CSGBox3D" parent="buildings/CSGCombiner3D" unique_id=1103005365]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.635, 1.7871704, 0.681)
+size = Vector3(3.8781738, 3.5743408, 4.9120483)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="buildings/CSGCombiner3D" unique_id=1381430804]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.635, 1.7871704, 9.638564)
+size = Vector3(3.8781738, 3.5743408, 4.9120483)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="buildings/CSGCombiner3D" unique_id=1565083007]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.635, 1.7871704, 18.815586)
+size = Vector3(3.8781738, 3.5743408, 4.9120483)
+
 [node name="Player" parent="." unique_id=202017375 instance=ExtResource("2_rwgxs")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.04726076, 0, -0.25134945)
 

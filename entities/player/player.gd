@@ -4,7 +4,7 @@ extends CharacterBody3D
 @onready var interior_root: Node3D = $InteriorRoot
 @onready var exterior_root: Node3D = $ExteriorRoot
 
-@onready var camera_exterior: Camera3D = $ExteriorRoot/CameraExterior
+@onready var camera_exterior: Camera3D = $ExteriorRoot/CameraExteriorRoot/CameraExterior
 @onready var camera_exterior_root: Node3D = $ExteriorRoot/CameraExteriorRoot
 @onready var camera_interior: Camera3D = $InteriorRoot/CameraInterior
 

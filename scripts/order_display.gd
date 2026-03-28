@@ -11,11 +11,14 @@ var desc: String
 var money: String
 var duration: String
 
-func set_details(title: String, address: String, value: float, time: int) -> void:
+func set_details(title: String, address: String, value: float, time: float) -> void:
 	_name = title
 	desc = address
 	money = "$%.2f" % [value]
-	duration = "%dm" % [time]
+	if time as int % 60 != 0:
+		duration = "%dm %ds" % [(time as int / 60), (time as int % 60)]
+	else:
+		duration = "%dm" % [(time as int / 60)]
 
 func _ready() -> void:
 	order_name.text = _name

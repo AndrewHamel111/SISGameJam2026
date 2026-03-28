@@ -9,16 +9,21 @@
 [sub_resource type="LabelSettings" id="LabelSettings_0m4u7"]
 line_spacing = 0.0
 font_size = 8
+font_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_047uy"]
 font_size = 9
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_qyfn3"]
+font_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_5pdws"]
 font_size = 10
+font_color = Color(0, 0, 0, 1)
 
 [node name="ColorRect" type="ColorRect" unique_id=1483125797]
 custom_minimum_size = Vector2(0, 45)
-color = Color(0.6901961, 1, 0.7058824, 1)
 script = ExtResource("1_qyfn3")
 metadata/_custom_type_script = "uid://n46qt3lxqvcb"
 
@@ -55,6 +60,7 @@ offset_left = -40.0
 offset_bottom = 23.0
 grow_horizontal = 0
 text = "$5.50"
+label_settings = SubResource("LabelSettings_qyfn3")
 horizontal_alignment = 2
 
 [node name="Duration" type="Label" parent="." unique_id=1410466137]

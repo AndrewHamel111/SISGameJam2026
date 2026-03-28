@@ -67,10 +67,12 @@ func _physics_process(delta: float) -> void:
 		phone_selected_index += 1
 		phone_selected_index = mini(phone_selected_index, 2)
 		hud.hand_controller.set_pose(phone_selected_index as HandController.Pose)
+		hud.phone_display.select_order(phone_selected_index)
 	elif Input.is_action_just_pressed("phone_up"):
 		phone_selected_index -= 1
 		phone_selected_index = maxi(phone_selected_index, 0)
 		hud.hand_controller.set_pose(phone_selected_index as HandController.Pose)
+		hud.phone_display.select_order(phone_selected_index)
 	
 	if Input.is_action_just_pressed("phone_confirm"):
 		hud.hand_controller.set_pressed(true)

@@ -12,13 +12,39 @@
 
 ## TODO
 
+ordered in descending priority
+
+- [ ] core loop
+  - [ ] order flow
+    - [ ] choose active order from order view
+    - [ ] drive to pickup spot
+    - [ ] drive to destination spot
+    - [ ] earn money from completing orders
+  - [ ] gas up
+    - [ ] filling up with gas costs money
+    - [ ] gassing up needs feedback
+  - [ ] penalties
+    - [ ] failing an order reduces rating on app, leads to lower $$ earned
+- [ ] minimap
+- [ ] easy graphical wins
+  - [ ] improve shadow res / jaggys
+  - [ ] minor adjustments to car mesh
+
+- [ ] traffic
 - [ ] improve car controls
+  - [ ] move slower on grass
   - [ ] car should stop / lose speed when hitting obstacles
   - [ ] car should move considerably slower when not on roads
   - [ ] car turning doesn't feel satisfying
-- [ ] improve car visuals
-  - [ ] car wheels should turn, camera turning should also feel better
-- [ ] interior view improvements
-  - [ ] wheel should turn
-  - [ ] drivers side door should have window lol
 
+- [ ] improve car visuals
+  - [ ] basic texturing
+  - [ ] steering wheel turns
+- [ ] bank app (shows goal and current balance)
+
+## Stretch Ideas (post-jam)
+
+- [ ] upgrades
+- [ ] two handed phone mode
+- [ ] multiple phones
+- [ ] drawbridges, tunnels, and highways

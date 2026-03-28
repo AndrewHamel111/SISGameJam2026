@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://b1qr3gehd25ry"]
+
+[ext_resource type="Script" uid="uid://coxwtjffndt64" path="res://scripts/gas_station.gd" id="1_h7ese"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ql7fd"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_h7ese"]
+material = SubResource("StandardMaterial3D_ql7fd")
+size = Vector3(5, 0.01, 2)
+
+[sub_resource type="BoxMesh" id="BoxMesh_ql7fd"]
+size = Vector3(5, 2, 5)
+
+[sub_resource type="BoxMesh" id="BoxMesh_jwdhq"]
+size = Vector3(0.2, 0.4, 0.1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_jwdhq"]
+size = Vector3(1.295105, 0.50891113, 0.9091797)
+
+[node name="gas_station" type="Node3D" unique_id=497510875]
+script = ExtResource("1_h7ese")
+
+[node name="pavement" type="MeshInstance3D" parent="." unique_id=440525626]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
+mesh = SubResource("BoxMesh_h7ese")
+
+[node name="building" type="MeshInstance3D" parent="." unique_id=1234320638]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.009, 1, -4.5)
+mesh = SubResource("BoxMesh_ql7fd")
+
+[node name="pump" type="MeshInstance3D" parent="." unique_id=2053773765]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.59059596, 0.2, -1.5585477)
+mesh = SubResource("BoxMesh_jwdhq")
+
+[node name="pump_area" type="Area3D" parent="." unique_id=998508788]
+
+[node name="pump_area_shape" type="CollisionShape3D" parent="pump_area" unique_id=1381658670]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5459269, 0.24554443, -0.9052547)
+shape = SubResource("BoxShape3D_jwdhq")
+
+[connection signal="body_entered" from="pump_area" to="." method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="pump_area" to="." method="_on_area_3d_body_exited"]

@@ -20,11 +20,14 @@ const MIN_TURN_ANGLE := -1.25
 const MAX_TURN_ANGLE := 1.25
 const CAR_DECELERATION := 2.5
 const CAR_BRAKING := 10.0
-const CAR_MAX_SPEED := 25.0
+const CAR_MAX_SPEED_WITH_GAS := 25.0
+const CAR_MAX_SPEED_NO_GAS := 3.0
+var max_speed := CAR_MAX_SPEED_WITH_GAS
 var forward_velocity := 0.0
 var turn_angle := 0.0
 
 # gas
+var gas_station: GasStation = null
 var gas_remaining := 20.0
 var gas_max := 20.0
 var gas_usage_rate := 1.1
@@ -40,6 +43,10 @@ func _process(_delta: float) -> void:
 		toggle_camera_mode()
 
 func _physics_process(delta: float) -> void:
+	max_speed = CAR_MAX_SPEED_WITH_GAS
+	if gas_remaining <= 0.0:
+		max_speed = CAR_MAX_SPEED_NO_GAS
+
 	if Input.is_action_pressed("turn_left"):
 		turn_angle += delta * CAR_TURN_SPEED
 		turn_angle = minf(turn_angle, MAX_TURN_ANGLE)
@@ -50,8 +57,8 @@ func _physics_process(delta: float) -> void:
 		turn_angle = move_toward(turn_angle, 0, delta * CAR_TURN_SPEED)
 	
 	if Input.is_action_pressed("accelerate"):
-		forward_velocity += delta * car_acceleration_curve.sample(forward_velocity / CAR_MAX_SPEED)
-		forward_velocity = minf(forward_velocity, CAR_MAX_SPEED)
+		forward_velocity += delta * car_acceleration_curve.sample(forward_velocity / max_speed)
+		forward_velocity = minf(forward_velocity, max_speed)
 	else:
 		var deceleration : float = CAR_BRAKING if Input.is_action_pressed("brake") else CAR_DECELERATION
 		forward_velocity = move_toward(forward_velocity, 0, delta * deceleration)
@@ -71,11 +78,11 @@ func _physics_process(delta: float) -> void:
 		hud.hand_controller.set_pressed(false)
 	
 	if forward_velocity > 0.1:
-		var car_turn_angle := lerpf(turn_angle, turn_angle * 0.5, forward_velocity / CAR_MAX_SPEED)
+		var car_turn_angle := lerpf(turn_angle, turn_angle * 0.5, forward_velocity / max_speed)
 		rotate_y(deg_to_rad(car_turn_angle))
 		camera_exterior_root.rotation = Vector3(0, deg_to_rad(turn_angle), 0)
 	
-	hud.set_speed(roundi(lerpf(0, 50, forward_velocity / CAR_MAX_SPEED)))
+	hud.set_speed(roundi(lerpf(0, 50, forward_velocity / CAR_MAX_SPEED_WITH_GAS)))
 	velocity = basis * Vector3(0, 0, 1) * forward_velocity
 	move_and_slide()
 	deal_with_gas(delta)
@@ -86,14 +93,26 @@ func toggle_camera_mode() -> void:
 	interior_root.visible = not camera_mode
 	camera_exterior.current = camera_mode
 	exterior_root.visible = camera_mode
+	
+func entered_gas_station(station : GasStation) -> void:
+	gas_station = station
+
+func exited_gas_station(station : GasStation) -> void:
+	gas_station = null
 
 func deal_with_gas(delta: float) -> void:
 	var gas_velocity : float = forward_velocity
-	if gas_velocity > Player.CAR_MAX_SPEED:
-		gas_velocity = Player.CAR_MAX_SPEED
+	if gas_velocity > Player.CAR_MAX_SPEED_WITH_GAS:
+		gas_velocity = Player.CAR_MAX_SPEED_WITH_GAS
 
-	var velocity_perc : float = gas_velocity / CAR_MAX_SPEED
+	var velocity_perc := gas_velocity / CAR_MAX_SPEED_WITH_GAS
 
 	gas_remaining -= gas_usage_rate * delta * velocity_perc
 	if gas_remaining < 0:
 		gas_remaining = 0
+
+	if gas_station:
+		if forward_velocity == 0:
+			gas_remaining += gas_station.fill_rate * delta
+			if gas_remaining > gas_max:
+				gas_remaining = gas_max

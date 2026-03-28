@@ -10,7 +10,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
-	var player : Player = get_node("/root/World/Player") as Player
+	var player := get_node("/root/World/Player") as Player
 
 	var perc : float = player.gas_remaining / player.gas_max
 	rotation_degrees = Vector3(0, 0, needle_angle_empty + perc * (needle_angle_full - needle_angle_empty))

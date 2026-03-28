@@ -1,8 +1,10 @@
 [gd_scene format=3 uid="uid://dtqu5xh8doqxf"]
 
 [ext_resource type="PackedScene" uid="uid://0gpemaq84xid" path="res://resources/glb/ground_tile.glb" id="1_nnsk1"]
+[ext_resource type="PackedScene" uid="uid://bld0i1ipxocc4" path="res://resources/glb/road_tile.glb" id="2_k0juu"]
 [ext_resource type="PackedScene" uid="uid://cc63iy4jodjin" path="res://entities/player/player.tscn" id="2_rwgxs"]
 [ext_resource type="Script" uid="uid://cs25xmu28i8fr" path="res://scripts/hud_controller.gd" id="3_4wyf3"]
+[ext_resource type="PackedScene" uid="uid://cv7pcmcs3pky4" path="res://resources/glb/road_tile_3int.glb" id="3_71j4m"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_4wyf3"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -33,7 +35,79 @@ transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545
 light_color = Color(0.5370113, 0.5370113, 0.5370113, 1)
 shadow_enabled = true
 
-[node name="ground_tile" parent="." unique_id=1613282644 instance=ExtResource("1_nnsk1")]
+[node name="ground" type="Node3D" parent="." unique_id=491923927]
+
+[node name="ground_layer" type="Node3D" parent="ground" unique_id=663169602]
+
+[node name="ground_tile" parent="ground/ground_layer" unique_id=1613282644 instance=ExtResource("1_nnsk1")]
+
+[node name="road_layer" type="Node3D" parent="ground" unique_id=957929157]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.01, 0)
+
+[node name="road_tile" parent="ground/road_layer" unique_id=108170447 instance=ExtResource("2_k0juu")]
+
+[node name="road_tile2" parent="ground/road_layer" unique_id=207480733 instance=ExtResource("2_k0juu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4)
+
+[node name="road_tile3" parent="ground/road_layer" unique_id=192945315 instance=ExtResource("2_k0juu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 8)
+
+[node name="road_tile4" parent="ground/road_layer" unique_id=565024683 instance=ExtResource("2_k0juu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 12)
+
+[node name="road_tile5" parent="ground/road_layer" unique_id=842858170 instance=ExtResource("2_k0juu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 16)
+
+[node name="road_tile6" parent="ground/road_layer" unique_id=140965821 instance=ExtResource("2_k0juu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 20)
+
+[node name="road_tile7" parent="ground/road_layer" unique_id=1560914168 instance=ExtResource("2_k0juu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 24)
+
+[node name="road_tile8" parent="ground/road_layer" unique_id=490164355 instance=ExtResource("2_k0juu")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 28, 0, 28)
+
+[node name="road_tile9" parent="ground/road_layer" unique_id=332342491 instance=ExtResource("2_k0juu")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 24, 0, 28)
+
+[node name="road_tile10" parent="ground/road_layer" unique_id=1573691295 instance=ExtResource("2_k0juu")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 20, 0, 28)
+
+[node name="road_tile11" parent="ground/road_layer" unique_id=617083260 instance=ExtResource("2_k0juu")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 16, 0, 28)
+
+[node name="road_tile12" parent="ground/road_layer" unique_id=1840640949 instance=ExtResource("2_k0juu")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 12, 0, 28)
+
+[node name="road_tile13" parent="ground/road_layer" unique_id=289541116 instance=ExtResource("2_k0juu")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 8, 0, 28)
+
+[node name="road_tile14" parent="ground/road_layer" unique_id=1128353266 instance=ExtResource("2_k0juu")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 4, 0, 28)
+
+[node name="road_tile15" parent="ground/road_layer" unique_id=1654971231 instance=ExtResource("2_k0juu")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -4, 0, 28)
+
+[node name="road_tile16" parent="ground/road_layer" unique_id=1595272771 instance=ExtResource("2_k0juu")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -8, 0, 28)
+
+[node name="road_tile17" parent="ground/road_layer" unique_id=660921819 instance=ExtResource("2_k0juu")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -12, 0, 28)
+
+[node name="road_tile18" parent="ground/road_layer" unique_id=455738581 instance=ExtResource("2_k0juu")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -16, 0, 28)
+
+[node name="road_tile19" parent="ground/road_layer" unique_id=1326335851 instance=ExtResource("2_k0juu")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -20, 0, 28)
+
+[node name="road_tile20" parent="ground/road_layer" unique_id=581867438 instance=ExtResource("2_k0juu")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -24, 0, 28)
+
+[node name="road_tile21" parent="ground/road_layer" unique_id=831855395 instance=ExtResource("2_k0juu")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -28, 0, 28)
+
+[node name="road_tile_3int" parent="ground/road_layer" unique_id=352143354 instance=ExtResource("3_71j4m")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0, 28)
 
 [node name="Player" parent="." unique_id=202017375 instance=ExtResource("2_rwgxs")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.04726076, 0, -0.25134945)

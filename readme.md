@@ -6,9 +6,9 @@
 
 **Scope goal:** to build the systems for driving the car, creating the orders and driving to the points to collect and deliver the order. *some upgrades*, and a "lose condition" where you fall below the constantly rising *cost of living* for a fixed amount of time.
 
-![image-20260327203516224](images/image-20260327203516224.png)
-
+![image-20260328171226966](images/image-20260328171226966.png)
 ![image-20260327203819549](images/image-20260327203819549.png)
+![image-20260327203516224](images/image-20260327203516224.png)
 
 ## TODO
 
@@ -33,6 +33,8 @@ ordered in descending priority
 - [ ] traffic
 - [ ] improve car controls
   - [ ] move slower on grass
+  - [ ] remove max speed clamp
+  - [ ] car can reverse
   - [ ] car should stop / lose speed when hitting obstacles
   - [ ] car should move considerably slower when not on roads
   - [ ] car turning doesn't feel satisfying

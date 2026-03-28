@@ -23,7 +23,7 @@ metadata/_custom_type_script = "uid://dtxuvpfea4hmd"
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.2874603e-05, 0.002041459, 0.0002937913)
 
 [node name="CameraInterior" type="Camera3D" parent="InteriorRoot" unique_id=6072620]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0.17214024, 0.491939, -0.046283633)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0.17214024, 0.6052936, -0.046283633)
 current = true
 
 [node name="ExteriorRoot" type="Node3D" parent="." unique_id=174343180]

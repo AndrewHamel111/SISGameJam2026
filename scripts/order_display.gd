@@ -1,0 +1,24 @@
+class_name OrderDisplay
+extends ColorRect
+
+@onready var order_name: Label = $OrderName
+@onready var order_destination: Label = $OrderDestination
+@onready var order_value: Label = $Value
+@onready var order_duration: Label = $Duration
+
+var _name: String
+var desc: String
+var money: String
+var duration: String
+
+func set_details(title: String, address: String, value: float, time: int) -> void:
+	_name = title
+	desc = address
+	money = "$%.2f" % [value]
+	duration = "%dm" % [time]
+
+func _ready() -> void:
+	order_name.text = _name
+	order_destination.text = desc
+	order_value.text = money
+	order_duration.text = duration

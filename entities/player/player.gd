@@ -11,6 +11,9 @@ extends CharacterBody3D
 var camera_mode: bool = true
 var hud: HUDController
 
+# phone control
+var phone_selected_index : int = 0
+
 # car control
 const CAR_TURN_SPEED := 10.0
 const MIN_TURN_ANGLE := -1.25
@@ -46,6 +49,15 @@ func _physics_process(delta: float) -> void:
 	else:
 		var deceleration : float = CAR_BRAKING if Input.is_action_pressed("brake") else CAR_DECELERATION
 		forward_velocity = move_toward(forward_velocity, 0, delta * deceleration)
+	
+	if Input.is_action_just_pressed("phone_down"):
+		phone_selected_index += 1
+		phone_selected_index = mini(phone_selected_index, 2)
+		hud.hand_controller.set_pose(phone_selected_index as HandController.Pose)
+	elif Input.is_action_just_pressed("phone_up"):
+		phone_selected_index -= 1
+		phone_selected_index = maxi(phone_selected_index, 0)
+		hud.hand_controller.set_pose(phone_selected_index as HandController.Pose)
 	
 	if forward_velocity > 0.1:
 		var car_turn_angle := lerpf(turn_angle, turn_angle * 0.5, forward_velocity / CAR_MAX_SPEED)

@@ -1,8 +1,10 @@
 class_name HUDController
 extends Control
 
-@onready var label_2: Label = $Label2
-@onready var label: Label = $Label
+@onready var label_2: Label = $SpeedDisplay/Label2
+@onready var label: Label = $SpeedDisplay/Label
+@onready var phone_display: PhoneDisplay = $PhoneDisplay
+@onready var hand_controller: HandController = $PhoneDisplay/HandController
 
 func set_speed(speed: int) -> void:
 	label.text = "%d MPH" % [speed]

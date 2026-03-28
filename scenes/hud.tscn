@@ -1,0 +1,106 @@
+[gd_scene format=3 uid="uid://bpt784eyxt3ds"]
+
+[ext_resource type="Script" uid="uid://cs25xmu28i8fr" path="res://scripts/hud_controller.gd" id="1_ahhtf"]
+[ext_resource type="Script" uid="uid://d0ygxr0cxvt4s" path="res://scripts/phone_display.gd" id="2_5ysmq"]
+[ext_resource type="Texture2D" uid="uid://dr2lsonich864" path="res://resources/png/phone_blank.png" id="2_oo0fn"]
+[ext_resource type="Script" uid="uid://nahkn1jsqqlv" path="res://scripts/hand_controller.gd" id="4_047uy"]
+[ext_resource type="Texture2D" uid="uid://b7ibh1jkyg2sq" path="res://resources/png/hand_orders/top_back.png" id="5_5pdws"]
+[ext_resource type="Texture2D" uid="uid://cmh2j8itojxry" path="res://resources/png/hand_orders/top_front.png" id="6_hd3ao"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_k0juu"]
+font_size = 48
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_rwgxs"]
+font_size = 48
+
+[node name="HUD" type="Control" unique_id=629020837]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ahhtf")
+
+[node name="SpeedDisplay" type="Control" parent="." unique_id=133005542]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -40.0
+offset_right = 40.0
+grow_vertical = 0
+
+[node name="Label2" type="Label" parent="SpeedDisplay" unique_id=1340180542]
+layout_mode = 0
+offset_left = 35.0
+offset_top = -74.0
+offset_right = 184.0
+offset_bottom = -7.0
+pivot_offset = Vector2(185, 69)
+text = "0 MPH"
+label_settings = SubResource("LabelSettings_k0juu")
+
+[node name="Label" type="Label" parent="SpeedDisplay" unique_id=1249369622]
+layout_mode = 0
+offset_left = 32.0
+offset_top = -77.0
+offset_right = 181.0
+offset_bottom = -10.0
+pivot_offset = Vector2(188, 72)
+text = "0 MPH"
+label_settings = SubResource("LabelSettings_rwgxs")
+
+[node name="PhoneDisplay" type="Control" parent="." unique_id=1450627390]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -40.0
+grow_horizontal = 0
+grow_vertical = 0
+scale = Vector2(1.75, 1.75)
+script = ExtResource("2_5ysmq")
+
+[node name="TextureRect" type="TextureRect" parent="PhoneDisplay" unique_id=1415203291]
+layout_mode = 0
+offset_left = -169.71428
+offset_top = -216.57143
+offset_right = -44.71428
+offset_bottom = -16.571426
+texture = ExtResource("2_oo0fn")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PhoneDisplay/TextureRect" unique_id=1704557126]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 117.0
+offset_bottom = 148.0
+
+[node name="HandController" type="Control" parent="PhoneDisplay" unique_id=870589063]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(0.115, 0.115)
+script = ExtResource("4_047uy")
+
+[node name="TextureRect" type="TextureRect" parent="PhoneDisplay/HandController" unique_id=794678660]
+z_index = -1
+layout_mode = 0
+offset_left = -1510.5591
+offset_top = -1600.0001
+offset_right = 537.4409
+offset_bottom = 447.99988
+texture = ExtResource("5_5pdws")
+
+[node name="TextureRect2" type="TextureRect" parent="PhoneDisplay/HandController" unique_id=546674859]
+layout_mode = 0
+offset_left = -1510.5591
+offset_top = -1600.0001
+offset_right = 537.4409
+offset_bottom = 447.99988
+texture = ExtResource("6_hd3ao")

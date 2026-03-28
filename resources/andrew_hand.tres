@@ -1,0 +1,29 @@
+[gd_resource type="Resource" script_class="HandLibrary" format=3 uid="uid://cfeggiukwcg7c"]
+
+[ext_resource type="Script" uid="uid://wlajjqhy35mx" path="res://scripts/hand_library.gd" id="1_el6vk"]
+[ext_resource type="Texture2D" uid="uid://d014b3wcrfgeh" path="res://resources/png/hand_orders/bottom_back.png" id="1_hnsch"]
+[ext_resource type="Texture2D" uid="uid://dlvqm4e50jdug" path="res://resources/png/hand_orders/bottom_front.png" id="2_r3tb8"]
+[ext_resource type="Texture2D" uid="uid://htfpd6hx2gd" path="res://resources/png/hand_orders/middle_back.png" id="3_3illi"]
+[ext_resource type="Texture2D" uid="uid://g8c34yl078l2" path="res://resources/png/hand_orders/middle_front.png" id="4_y18av"]
+[ext_resource type="Texture2D" uid="uid://to03poi20ogp" path="res://resources/png/hand_swipe/1_back.png" id="6_y8y86"]
+[ext_resource type="Texture2D" uid="uid://da48jh2sjkcl0" path="res://resources/png/hand_swipe/2_back.png" id="7_p57xv"]
+[ext_resource type="Texture2D" uid="uid://dtd2b7b4i260j" path="res://resources/png/hand_swipe/3_back.png" id="8_24cak"]
+[ext_resource type="Texture2D" uid="uid://dw2fatx37yuq5" path="res://resources/png/hand_swipe/4_back.png" id="9_l2ox3"]
+[ext_resource type="Texture2D" uid="uid://blx354f5idc00" path="res://resources/png/hand_swipe/1_front.png" id="10_rf4y2"]
+[ext_resource type="Texture2D" uid="uid://dp1w06h74q5x6" path="res://resources/png/hand_swipe/2_front.png" id="11_nqn70"]
+[ext_resource type="Texture2D" uid="uid://c5ccxm6ld241r" path="res://resources/png/hand_swipe/3_front.png" id="12_17y2l"]
+[ext_resource type="Texture2D" uid="uid://0la831jbni4k" path="res://resources/png/hand_swipe/4_front.png" id="13_w507w"]
+[ext_resource type="Texture2D" uid="uid://b7ibh1jkyg2sq" path="res://resources/png/hand_orders/top_back.png" id="14_ipid7"]
+[ext_resource type="Texture2D" uid="uid://cmh2j8itojxry" path="res://resources/png/hand_orders/top_front.png" id="15_scfj1"]
+
+[resource]
+script = ExtResource("1_el6vk")
+top_back = ExtResource("14_ipid7")
+top_front = ExtResource("15_scfj1")
+middle_back = ExtResource("3_3illi")
+middle_front = ExtResource("4_y18av")
+bottom_back = ExtResource("1_hnsch")
+bottom_front = ExtResource("2_r3tb8")
+swipe_back = Array[Texture2D]([ExtResource("6_y8y86"), ExtResource("7_p57xv"), ExtResource("8_24cak"), ExtResource("9_l2ox3")])
+swipe_front = Array[Texture2D]([ExtResource("10_rf4y2"), ExtResource("11_nqn70"), ExtResource("12_17y2l"), ExtResource("13_w507w")])
+metadata/_custom_type_script = "uid://wlajjqhy35mx"

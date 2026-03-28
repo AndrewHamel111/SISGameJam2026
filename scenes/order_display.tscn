@@ -1,0 +1,114 @@
+[gd_scene format=3 uid="uid://wpnx8ykjk0rn"]
+
+[ext_resource type="Script" uid="uid://n46qt3lxqvcb" path="res://scripts/order_display.gd" id="1_qyfn3"]
+[ext_resource type="Texture2D" uid="uid://jts0le8ujnj1" path="res://resources/png/timer.png" id="2_cva5s"]
+[ext_resource type="Texture2D" uid="uid://bsiwsqt1l5tpm" path="res://resources/png/money1.png" id="3_1l38u"]
+[ext_resource type="Texture2D" uid="uid://b3fajjpi7sc0b" path="res://resources/png/money2.png" id="4_x4xi8"]
+[ext_resource type="Texture2D" uid="uid://cx17jijj0yhji" path="res://resources/png/money3.png" id="5_npelg"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_0m4u7"]
+line_spacing = 0.0
+font_size = 8
+
+[sub_resource type="LabelSettings" id="LabelSettings_047uy"]
+font_size = 9
+
+[sub_resource type="LabelSettings" id="LabelSettings_5pdws"]
+font_size = 10
+
+[node name="ColorRect" type="ColorRect" unique_id=1483125797]
+custom_minimum_size = Vector2(0, 45)
+color = Color(0.6901961, 1, 0.7058824, 1)
+script = ExtResource("1_qyfn3")
+metadata/_custom_type_script = "uid://n46qt3lxqvcb"
+
+[node name="OrderName" type="Label" parent="." unique_id=1159864202]
+layout_mode = 0
+offset_left = 3.142857
+offset_top = -0.14285713
+offset_right = 43.142857
+offset_bottom = 22.857143
+text = "Pizza Hut
+Bob Branson"
+label_settings = SubResource("LabelSettings_0m4u7")
+
+[node name="OrderDestination" type="Label" parent="." unique_id=1829727098]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 1.9999999
+offset_top = -22.857143
+offset_right = 42.0
+offset_bottom = 0.1428566
+grow_vertical = 0
+text = "0000 STREET AVE"
+label_settings = SubResource("LabelSettings_047uy")
+vertical_alignment = 2
+
+[node name="Value" type="Label" parent="." unique_id=96743615]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 23.0
+grow_horizontal = 0
+text = "$5.50"
+horizontal_alignment = 2
+
+[node name="Duration" type="Label" parent="." unique_id=1410466137]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -23.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "10m"
+label_settings = SubResource("LabelSettings_5pdws")
+horizontal_alignment = 2
+vertical_alignment = 2
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=145025056]
+texture_filter = 1
+layout_mode = 0
+offset_left = 76.85714
+offset_top = 33.571426
+offset_right = 116.85715
+offset_bottom = 73.57143
+scale = Vector2(0.21561477, 0.21561477)
+texture = ExtResource("2_cva5s")
+
+[node name="TextureRect2" type="TextureRect" parent="." unique_id=74551130]
+texture_filter = 1
+layout_mode = 0
+offset_left = 57.428566
+offset_top = 6.714286
+offset_right = 97.42857
+offset_bottom = 46.714287
+scale = Vector2(0.21561477, 0.21561477)
+texture = ExtResource("3_1l38u")
+
+[node name="TextureRect3" type="TextureRect" parent="." unique_id=1943515076]
+texture_filter = 1
+layout_mode = 0
+offset_left = 56.285706
+offset_top = 7.285714
+offset_right = 96.28571
+offset_bottom = 47.285713
+scale = Vector2(0.21561477, 0.21561477)
+texture = ExtResource("4_x4xi8")
+
+[node name="TextureRect4" type="TextureRect" parent="." unique_id=672050150]
+texture_filter = 1
+layout_mode = 0
+offset_left = 54.571426
+offset_top = 6.142857
+offset_right = 94.571434
+offset_bottom = 46.142857
+scale = Vector2(0.21561477, 0.21561477)
+texture = ExtResource("5_npelg")

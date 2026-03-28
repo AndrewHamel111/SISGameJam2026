@@ -59,6 +59,11 @@ func _physics_process(delta: float) -> void:
 		phone_selected_index = maxi(phone_selected_index, 0)
 		hud.hand_controller.set_pose(phone_selected_index as HandController.Pose)
 	
+	if Input.is_action_just_pressed("phone_confirm"):
+		hud.hand_controller.set_pressed(true)
+	elif Input.is_action_just_released("phone_confirm"):
+		hud.hand_controller.set_pressed(false)
+	
 	if forward_velocity > 0.1:
 		var car_turn_angle := lerpf(turn_angle, turn_angle * 0.5, forward_velocity / CAR_MAX_SPEED)
 		rotate_y(deg_to_rad(car_turn_angle))

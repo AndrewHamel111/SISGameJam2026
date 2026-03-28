@@ -5,6 +5,9 @@ extends Control
 @onready var texrect_front: TextureRect = $TextureRect2
 @onready var hand_library: HandLibrary = preload("res://resources/andrew_hand.tres")
 
+@export var touch_offset: float = 30.0
+@export var touch_rotation_deg: float = 10.0
+
 enum Pose
 {
 	TOP = 0,
@@ -31,3 +34,11 @@ func set_pose(pose: Pose) -> void:
 		#Pose.SWIPE_RIGHT:
 			## TODO: start quick right-swipe animation
 			#pass
+
+func set_pressed(pressed: bool) -> void:
+	if pressed:
+		texrect_front.position = Vector2(texrect_front.position.x - touch_offset, texrect_front.position.y)
+		texrect_front.rotation_degrees -= touch_rotation_deg
+	else:
+		texrect_front.position = Vector2(texrect_front.position.x + touch_offset, texrect_front.position.y)
+		texrect_front.rotation_degrees += touch_rotation_deg

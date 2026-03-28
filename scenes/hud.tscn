@@ -103,4 +103,5 @@ offset_left = -1510.5591
 offset_top = -1600.0001
 offset_right = 537.4409
 offset_bottom = 447.99988
+pivot_offset = Vector2(1300, 900)
 texture = ExtResource("6_hd3ao")

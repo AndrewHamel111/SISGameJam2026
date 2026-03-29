@@ -99,7 +99,7 @@ func toggle_camera_mode() -> void:
 func entered_gas_station(station : GasStation) -> void:
 	gas_station = station
 
-func exited_gas_station(station : GasStation) -> void:
+func exited_gas_station(_station : GasStation) -> void:
 	gas_station = null
 
 func deal_with_gas(delta: float) -> void:

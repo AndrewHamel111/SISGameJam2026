@@ -65,6 +65,12 @@ func get_order(index: int) -> Order:
 		return null
 	return (children[index] as OrderDisplay).order
 
+func set_rating(rating: int) -> void:
+	var gold_star_root : Node = $TextureRect/OrdersView/HBoxContainer
+	for node in gold_star_root.get_children():
+		node.visible = rating > 0
+		rating -= 1
+
 func scroll_apps(direction: int) -> void:
 	current_app += direction
 	if current_app == App.COUNT as int:

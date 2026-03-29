@@ -82,10 +82,10 @@ vertical_alignment = 2
 [node name="TextureRect" type="TextureRect" parent="." unique_id=145025056]
 texture_filter = 1
 layout_mode = 0
-offset_left = 76.85714
-offset_top = 33.571426
-offset_right = 116.85715
-offset_bottom = 73.57143
+offset_left = 59.0
+offset_top = 34.0
+offset_right = 99.00001
+offset_bottom = 74.0
 scale = Vector2(0.21561477, 0.21561477)
 texture = ExtResource("2_cva5s")
 

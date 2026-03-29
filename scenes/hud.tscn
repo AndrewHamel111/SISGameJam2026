@@ -6,7 +6,9 @@
 [ext_resource type="PackedScene" uid="uid://wpnx8ykjk0rn" path="res://scenes/order_display.tscn" id="4_5pdws"]
 [ext_resource type="Script" uid="uid://nahkn1jsqqlv" path="res://scripts/hand_controller.gd" id="4_047uy"]
 [ext_resource type="Texture2D" uid="uid://b7ibh1jkyg2sq" path="res://resources/png/hand_orders/top_back.png" id="5_5pdws"]
+[ext_resource type="Texture2D" uid="uid://bjoh25s2hrs62" path="res://resources/png/star.png" id="5_eld54"]
 [ext_resource type="Texture2D" uid="uid://uqxqmigx41ai" path="res://resources/png/flag.png" id="6_0m4u7"]
+[ext_resource type="Texture2D" uid="uid://cnhgpp25ex2y" path="res://resources/png/star_outline.png" id="6_3swnk"]
 [ext_resource type="Script" uid="uid://behi0v6i0r5kh" path="res://scripts/bank_view.gd" id="6_apjy4"]
 [ext_resource type="Texture2D" uid="uid://cmh2j8itojxry" path="res://resources/png/hand_orders/top_front.png" id="6_hd3ao"]
 [ext_resource type="Script" uid="uid://2ckk0ywviwat" path="res://scripts/minimap.gd" id="7_5pdws"]
@@ -19,13 +21,6 @@ font_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_rwgxs"]
 font_size = 48
-
-[sub_resource type="FontVariation" id="FontVariation_5pdws"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_hd3ao"]
-font = SubResource("FontVariation_5pdws")
-font_size = 27
-font_color = Color(0, 0.2, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_eld54"]
 line_spacing = -5.485
@@ -111,31 +106,65 @@ offset_bottom = 148.0
 [node name="ColorRect" parent="PhoneDisplay/TextureRect/OrdersView/VBoxContainer" unique_id=1483125797 instance=ExtResource("4_5pdws")]
 layout_mode = 2
 
-[node name="Panel" type="ColorRect" parent="PhoneDisplay/TextureRect/OrdersView" unique_id=910206668]
+[node name="HBoxContainer" type="HBoxContainer" parent="PhoneDisplay/TextureRect/OrdersView" unique_id=1754479993]
 layout_mode = 0
-offset_left = 5.1428566
-offset_top = 151.99998
-offset_right = 119.42856
-offset_bottom = 191.99998
-color = Color(0, 0.76862746, 0, 1)
+offset_left = 7.9999995
+offset_top = 155.99998
+offset_right = 115.99997
+offset_bottom = 174.85713
+scale = Vector2(0.63, 0.63)
 
-[node name="Label" type="Label" parent="PhoneDisplay/TextureRect/OrdersView/Panel" unique_id=1458525506]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -41.142853
-offset_top = -11.5
-offset_right = 41.142853
-offset_bottom = 11.5
-grow_horizontal = 2
-grow_vertical = 2
-text = "+$10.00"
-label_settings = SubResource("LabelSettings_hd3ao")
-horizontal_alignment = 1
-vertical_alignment = 1
+[node name="TextureRect" type="TextureRect" parent="PhoneDisplay/TextureRect/OrdersView/HBoxContainer" unique_id=1400971859]
+layout_mode = 2
+texture = ExtResource("5_eld54")
+
+[node name="TextureRect2" type="TextureRect" parent="PhoneDisplay/TextureRect/OrdersView/HBoxContainer" unique_id=7552872]
+visible = false
+layout_mode = 2
+texture = ExtResource("5_eld54")
+
+[node name="TextureRect3" type="TextureRect" parent="PhoneDisplay/TextureRect/OrdersView/HBoxContainer" unique_id=383233867]
+visible = false
+layout_mode = 2
+texture = ExtResource("5_eld54")
+
+[node name="TextureRect4" type="TextureRect" parent="PhoneDisplay/TextureRect/OrdersView/HBoxContainer" unique_id=1624847214]
+visible = false
+layout_mode = 2
+texture = ExtResource("5_eld54")
+
+[node name="TextureRect5" type="TextureRect" parent="PhoneDisplay/TextureRect/OrdersView/HBoxContainer" unique_id=1692245720]
+visible = false
+layout_mode = 2
+texture = ExtResource("5_eld54")
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="PhoneDisplay/TextureRect/OrdersView" unique_id=823675970]
+layout_mode = 0
+offset_left = 7.9999995
+offset_top = 155.99998
+offset_right = 115.99997
+offset_bottom = 174.85713
+scale = Vector2(0.63, 0.63)
+
+[node name="TextureRect" type="TextureRect" parent="PhoneDisplay/TextureRect/OrdersView/HBoxContainer2" unique_id=1303898454]
+layout_mode = 2
+texture = ExtResource("6_3swnk")
+
+[node name="TextureRect2" type="TextureRect" parent="PhoneDisplay/TextureRect/OrdersView/HBoxContainer2" unique_id=1327496919]
+layout_mode = 2
+texture = ExtResource("6_3swnk")
+
+[node name="TextureRect3" type="TextureRect" parent="PhoneDisplay/TextureRect/OrdersView/HBoxContainer2" unique_id=403504251]
+layout_mode = 2
+texture = ExtResource("6_3swnk")
+
+[node name="TextureRect4" type="TextureRect" parent="PhoneDisplay/TextureRect/OrdersView/HBoxContainer2" unique_id=360521605]
+layout_mode = 2
+texture = ExtResource("6_3swnk")
+
+[node name="TextureRect5" type="TextureRect" parent="PhoneDisplay/TextureRect/OrdersView/HBoxContainer2" unique_id=305099270]
+layout_mode = 2
+texture = ExtResource("6_3swnk")
 
 [node name="MapView" type="Control" parent="PhoneDisplay/TextureRect" unique_id=1698227467]
 visible = false

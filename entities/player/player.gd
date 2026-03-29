@@ -153,6 +153,7 @@ func add_money(value: float) -> void:
 func add_rating(value: int) -> void:
 	rating += value
 	rating = clampi(rating, 0, 5)
+	hud.phone_display.set_rating(rating)
 
 func house_area_entered(house: House) -> void:
 	var orders_to_remove: Array[Order]

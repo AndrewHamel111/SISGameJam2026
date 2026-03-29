@@ -1,6 +1,9 @@
 class_name GasStation
 extends Node3D
 
+@onready var pump_stream: AudioStreamPlayer3D = $PumpStream
+@onready var bell_stream: AudioStreamPlayer3D = $BellStream
+
 var fill_rate := 5
 var cost := 0.75
 

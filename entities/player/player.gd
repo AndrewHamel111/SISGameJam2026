@@ -160,6 +160,12 @@ func deal_with_gas(delta: float) -> void:
 		if forward_velocity == 0 and gas_remaining < gas_max:
 			gas_remaining += gas_station.fill_rate * delta
 			add_money(-gas_station.cost * delta)
+			if not gas_station.pump_stream.playing:
+				gas_station.pump_stream.play()
+		else:
+			if gas_station.pump_stream.playing:
+				gas_station.pump_stream.stop()
+				gas_station.bell_stream.play()
 
 func deal_with_grass(_delta: float) -> void:
 	if raycast.is_colliding():

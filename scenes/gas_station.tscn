@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" uid="uid://coxwtjffndt64" path="res://scripts/gas_station.gd" id="1_h7ese"]
 [ext_resource type="Material" uid="uid://utrwrlx3w6dq" path="res://resources/materials/zone_material.tres" id="2_jwdhq"]
+[ext_resource type="AudioStream" uid="uid://cu7h82451xi40" path="res://resources/wav/gurgling-liquid.wav" id="2_v71p2"]
+[ext_resource type="AudioStream" uid="uid://bvftx5kpispwn" path="res://resources/wav/gas-station-bell.wav" id="3_yidqh"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ql7fd"]
 albedo_color = Color(0, 0, 0, 1)
@@ -37,6 +39,14 @@ mesh = SubResource("BoxMesh_ql7fd")
 [node name="pump" type="MeshInstance3D" parent="." unique_id=2053773765]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.59059596, 0.2, -1.5585477)
 mesh = SubResource("BoxMesh_jwdhq")
+
+[node name="PumpStream" type="AudioStreamPlayer3D" parent="." unique_id=240410686]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5911626, 0.27547392, -1.4944264)
+stream = ExtResource("2_v71p2")
+
+[node name="BellStream" type="AudioStreamPlayer3D" parent="." unique_id=245821362]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5911626, 0.72964334, -1.8540249)
+stream = ExtResource("3_yidqh")
 
 [node name="pump_area" type="Area3D" parent="." unique_id=998508788]
 collision_layer = 4

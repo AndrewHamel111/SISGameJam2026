@@ -1,0 +1,135 @@
+[gd_scene format=3 uid="uid://ctbrd31bnh442"]
+
+[ext_resource type="PackedScene" uid="uid://437as2nipgpy" path="res://scenes/traffic_car.tscn" id="1_si8ga"]
+
+[sub_resource type="Curve3D" id="Curve3D_7r4gi"]
+closed = true
+bake_interval = 46.96
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 3.98, 0, 0.66, 0, 0, 0, 0, 0, 0, 24.165, 0, 0.675, 0, 0, 0, 0, 0, 0, 31.335, 0, 0.075, 0, 0, 0, 0, 0, 0, 38.77, 0, -1.875, 0, 0, 0, 0, 0, 0, 46.24, 0, -4.515, 0, 0, 0, 0, 0, 0, 53.395, 0, -7.75, 0, 0, 0, 0, 0, 0, 66.41, 0, -15.895, 0, 0, 0, 0, 0, 0, 82.81, 0, -32.125, 0, 0, 0, 0, 0, 0, 94.19, 0, -52.105, 0, 0, 0, 0, 0, 0, 100.31, 0, -74.56, 0, 0, 0, 0, 0, 0, 101.13, 0, -106.29, 0, 0, 0, 0, 0, 0, 98.1, 0, -109.2, 0, 0, 0, 0, 0, 0, 4.105, 0, -108.99, 0, 0, 0, 0, 0, 0, 1.36, 0, -105.955, 0, 0, 0, 0, 0, 0, 1.36, 0, -2.345),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+}
+point_count = 15
+
+[node name="Path3D" type="Path3D" unique_id=908988755]
+curve = SubResource("Curve3D_7r4gi")
+
+[node name="Car1" parent="." unique_id=298190989 instance=ExtResource("1_si8ga")]
+transform = Transform3D(-0.00074307027, 0, -0.9999931, 0, 1, 0, 0.9999931, 0, -0.00074307027, 3.98, 0.25, 0.66)
+
+[node name="Car2" parent="." unique_id=493499463 instance=ExtResource("1_si8ga")]
+transform = Transform3D(-0.0007430702, 0, -0.999993, 0, 1, 0, 0.999993, 0, -0.0007430702, 3.98, 0.25, 0.66)
+
+[node name="Car3" parent="." unique_id=1624654518 instance=ExtResource("1_si8ga")]
+transform = Transform3D(-0.00074307015, 0, -0.99999297, 0, 1, 0, 0.99999297, 0, -0.00074307015, 3.98, 0.25, 0.66)
+
+[node name="Car4" parent="." unique_id=1009302029 instance=ExtResource("1_si8ga")]
+transform = Transform3D(-0.0007430701, 0, -0.9999929, 0, 1, 0, 0.9999929, 0, -0.0007430701, 3.98, 0.25, 0.66)
+
+[node name="Car5" parent="." unique_id=1082328726 instance=ExtResource("1_si8ga")]
+transform = Transform3D(-0.00074307004, 0, -0.99999285, 0, 1, 0, 0.99999285, 0, -0.00074307004, 3.98, 0.25, 0.66)
+
+[node name="Car6" parent="." unique_id=1122234680 instance=ExtResource("1_si8ga")]
+transform = Transform3D(-0.00074307004, 0, -0.9999928, 0, 1, 0, 0.9999928, 0, -0.00074307004, 3.98, 0.25, 0.66)
+
+[node name="Car7" parent="." unique_id=116471409 instance=ExtResource("1_si8ga")]
+transform = Transform3D(-0.00074307, 0, -0.9999927, 0, 1, 0, 0.9999927, 0, -0.00074307, 3.98, 0.25, 0.66)
+
+[node name="Car8" parent="." unique_id=171628357 instance=ExtResource("1_si8ga")]
+transform = Transform3D(-0.0007430699, 0, -0.99999267, 0, 1, 0, 0.99999267, 0, -0.0007430699, 3.98, 0.25, 0.66)
+
+[node name="Car9" parent="." unique_id=1461493970 instance=ExtResource("1_si8ga")]
+transform = Transform3D(-0.00074306986, 0, -0.9999926, 0, 1, 0, 0.9999926, 0, -0.00074306986, 3.98, 0.25, 0.66)
+
+[node name="Car10" parent="." unique_id=1058031051 instance=ExtResource("1_si8ga")]
+transform = Transform3D(-0.00074306986, 0, -0.99999255, 0, 1, 0, 0.99999255, 0, -0.00074306986, 3.98, 0.25, 0.66)
+
+[node name="Car11" parent="." unique_id=2125204526 instance=ExtResource("1_si8ga")]
+transform = Transform3D(-0.0007430698, 0, -0.9999925, 0, 1, 0, 0.9999925, 0, -0.0007430698, 3.98, 0.25, 0.66)
+
+[node name="Car12" parent="." unique_id=491057406 instance=ExtResource("1_si8ga")]
+transform = Transform3D(-0.00074306974, 0, -0.99999243, 0, 1, 0, 0.99999243, 0, -0.00074306974, 3.98, 0.25, 0.66)
+
+[node name="Car13" parent="." unique_id=830050491 instance=ExtResource("1_si8ga")]
+transform = Transform3D(-0.0007430697, 0, -0.9999924, 0, 1, 0, 0.9999924, 0, -0.0007430697, 3.98, 0.25, 0.66)
+
+[node name="Car14" parent="." unique_id=1546805570 instance=ExtResource("1_si8ga")]
+transform = Transform3D(-0.0007430697, 0, -0.9999923, 0, 1, 0, 0.9999923, 0, -0.0007430697, 3.98, 0.25, 0.66)
+
+[node name="Car15" parent="." unique_id=81462095 instance=ExtResource("1_si8ga")]
+transform = Transform3D(-0.0007430696, 0, -0.99999225, 0, 1, 0, 0.99999225, 0, -0.0007430696, 3.98, 0.25, 0.66)
+
+[node name="Car16" parent="." unique_id=719318718 instance=ExtResource("1_si8ga")]
+transform = Transform3D(-0.00074306957, 0, -0.9999922, 0, 1, 0, 0.9999922, 0, -0.00074306957, 3.98, 0.25, 0.66)
+
+[node name="Car17" parent="." unique_id=1394479368 instance=ExtResource("1_si8ga")]
+transform = Transform3D(-0.0007430695, 0, -0.99999213, 0, 1, 0, 0.99999213, 0, -0.0007430695, 3.98, 0.25, 0.66)
+
+[node name="Car18" parent="." unique_id=201507123 instance=ExtResource("1_si8ga")]
+transform = Transform3D(-0.0007430695, 0, -0.9999921, 0, 1, 0, 0.9999921, 0, -0.0007430695, 3.98, 0.25, 0.66)
+
+[node name="Car19" parent="." unique_id=1902656530 instance=ExtResource("1_si8ga")]
+transform = Transform3D(-0.00074306945, 0, -0.999992, 0, 1, 0, 0.999992, 0, -0.00074306945, 3.98, 0.25, 0.66)
+
+[node name="Car20" parent="." unique_id=429659944 instance=ExtResource("1_si8ga")]
+transform = Transform3D(-0.0007430694, 0, -0.99999195, 0, 1, 0, 0.99999195, 0, -0.0007430694, 3.98, 0.25, 0.66)
+
+[node name="Car21" parent="." unique_id=1858283086 instance=ExtResource("1_si8ga")]
+transform = Transform3D(-0.00074306934, 0, -0.9999919, 0, 1, 0, 0.9999919, 0, -0.00074306934, 3.98, 0.25, 0.66)
+
+[node name="Car22" parent="." unique_id=822605254 instance=ExtResource("1_si8ga")]
+transform = Transform3D(-0.00074306934, 0, -0.99999183, 0, 1, 0, 0.99999183, 0, -0.00074306934, 3.98, 0.25, 0.66)
+
+[node name="Car23" parent="." unique_id=1723068816 instance=ExtResource("1_si8ga")]
+transform = Transform3D(-0.0007430693, 0, -0.9999918, 0, 1, 0, 0.9999918, 0, -0.0007430693, 3.98, 0.25, 0.66)
+
+[node name="Car24" parent="." unique_id=1147041399 instance=ExtResource("1_si8ga")]
+transform = Transform3D(-0.0007430692, 0, -0.9999917, 0, 1, 0, 0.9999917, 0, -0.0007430692, 3.98, 0.25, 0.66)
+
+[node name="Car25" parent="." unique_id=1993341028 instance=ExtResource("1_si8ga")]
+transform = Transform3D(-0.00074306916, 0, -0.99999166, 0, 1, 0, 0.99999166, 0, -0.00074306916, 3.98, 0.25, 0.66)
+
+[node name="Car26" parent="." unique_id=1015836965 instance=ExtResource("1_si8ga")]
+transform = Transform3D(-0.00074306916, 0, -0.9999916, 0, 1, 0, 0.9999916, 0, -0.00074306916, 3.98, 0.25, 0.66)
+
+[node name="Car27" parent="." unique_id=200822057 instance=ExtResource("1_si8ga")]
+transform = Transform3D(-0.0007430691, 0, -0.99999154, 0, 1, 0, 0.99999154, 0, -0.0007430691, 3.98, 0.25, 0.66)
+
+[node name="Car28" parent="." unique_id=1631873789 instance=ExtResource("1_si8ga")]
+transform = Transform3D(-0.00074306905, 0, -0.9999915, 0, 1, 0, 0.9999915, 0, -0.00074306905, 3.98, 0.25, 0.66)
+
+[node name="Car29" parent="." unique_id=338782374 instance=ExtResource("1_si8ga")]
+transform = Transform3D(-0.000743069, 0, -0.9999914, 0, 1, 0, 0.9999914, 0, -0.000743069, 3.98, 0.25, 0.66)
+
+[node name="Car30" parent="." unique_id=483120716 instance=ExtResource("1_si8ga")]
+transform = Transform3D(-0.00074306893, 0, -0.99999136, 0, 1, 0, 0.99999136, 0, -0.00074306893, 3.98, 0.25, 0.66)
+
+[node name="Car31" parent="." unique_id=1205635304 instance=ExtResource("1_si8ga")]
+transform = Transform3D(-0.00074306893, 0, -0.9999913, 0, 1, 0, 0.9999913, 0, -0.00074306893, 3.98, 0.25, 0.66)
+
+[node name="Car32" parent="." unique_id=605380702 instance=ExtResource("1_si8ga")]
+transform = Transform3D(-0.0007430689, 0, -0.99999124, 0, 1, 0, 0.99999124, 0, -0.0007430689, 3.98, 0.25, 0.66)
+
+[node name="Car33" parent="." unique_id=1534034400 instance=ExtResource("1_si8ga")]
+transform = Transform3D(-0.0007430688, 0, -0.9999912, 0, 1, 0, 0.9999912, 0, -0.0007430688, 3.98, 0.25, 0.66)
+
+[node name="Car34" parent="." unique_id=1232196943 instance=ExtResource("1_si8ga")]
+transform = Transform3D(-0.00074306875, 0, -0.9999911, 0, 1, 0, 0.9999911, 0, -0.00074306875, 3.98, 0.25, 0.66)
+
+[node name="Car35" parent="." unique_id=1796489734 instance=ExtResource("1_si8ga")]
+transform = Transform3D(-0.00074306875, 0, -0.99999106, 0, 1, 0, 0.99999106, 0, -0.00074306875, 3.98, 0.25, 0.66)
+
+[node name="Car36" parent="." unique_id=1139657665 instance=ExtResource("1_si8ga")]
+transform = Transform3D(-0.0007430687, 0, -0.999991, 0, 1, 0, 0.999991, 0, -0.0007430687, 3.98, 0.25, 0.66)
+
+[node name="Car37" parent="." unique_id=1513337300 instance=ExtResource("1_si8ga")]
+transform = Transform3D(-0.00074306864, 0, -0.99999094, 0, 1, 0, 0.99999094, 0, -0.00074306864, 3.98, 0.25, 0.66)
+
+[node name="Car38" parent="." unique_id=866162509 instance=ExtResource("1_si8ga")]
+transform = Transform3D(-0.0007430686, 0, -0.9999909, 0, 1, 0, 0.9999909, 0, -0.0007430686, 3.98, 0.25, 0.66)
+
+[node name="Car39" parent="." unique_id=401278979 instance=ExtResource("1_si8ga")]
+transform = Transform3D(-0.0007430686, 0, -0.9999908, 0, 1, 0, 0.9999908, 0, -0.0007430686, 3.98, 0.25, 0.66)
+
+[node name="Car40" parent="." unique_id=1695554676 instance=ExtResource("1_si8ga")]
+transform = Transform3D(-0.0007430685, 0, -0.99999076, 0, 1, 0, 0.99999076, 0, -0.0007430685, 3.98, 0.25, 0.66)

@@ -6,8 +6,12 @@
 [ext_resource type="PackedScene" uid="uid://wpnx8ykjk0rn" path="res://scenes/order_display.tscn" id="4_5pdws"]
 [ext_resource type="Script" uid="uid://nahkn1jsqqlv" path="res://scripts/hand_controller.gd" id="4_047uy"]
 [ext_resource type="Texture2D" uid="uid://b7ibh1jkyg2sq" path="res://resources/png/hand_orders/top_back.png" id="5_5pdws"]
+[ext_resource type="Texture2D" uid="uid://uqxqmigx41ai" path="res://resources/png/flag.png" id="6_0m4u7"]
+[ext_resource type="Script" uid="uid://behi0v6i0r5kh" path="res://scripts/bank_view.gd" id="6_apjy4"]
 [ext_resource type="Texture2D" uid="uid://cmh2j8itojxry" path="res://resources/png/hand_orders/top_front.png" id="6_hd3ao"]
 [ext_resource type="Script" uid="uid://2ckk0ywviwat" path="res://scripts/minimap.gd" id="7_5pdws"]
+[ext_resource type="Texture2D" uid="uid://b4cghf00b50xs" path="res://resources/png/arrow.png" id="7_apjy4"]
+[ext_resource type="Texture2D" uid="uid://bv0fqeucywfnp" path="res://resources/png/bank.png" id="8_5n1hp"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_k0juu"]
 font_size = 48
@@ -22,6 +26,15 @@ font_size = 48
 font = SubResource("FontVariation_5pdws")
 font_size = 27
 font_color = Color(0, 0.2, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_eld54"]
+line_spacing = -5.485
+font_size = 12
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_3swnk"]
+font_size = 24
+font_color = Color(0, 0, 0, 1)
 
 [node name="HUD" type="Control" unique_id=629020837]
 layout_mode = 3
@@ -155,6 +168,86 @@ visible = false
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+script = ExtResource("6_apjy4")
+
+[node name="ColorRectDefecit" type="ColorRect" parent="PhoneDisplay/TextureRect/BankView" unique_id=1105859940]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 102.286
+offset_right = 21.0
+offset_bottom = 110.286
+color = Color(0.7137255, 0, 0, 1)
+
+[node name="ColorRectProfit" type="ColorRect" parent="PhoneDisplay/TextureRect/BankView" unique_id=757598778]
+layout_mode = 0
+offset_left = 23.0
+offset_top = 102.286
+offset_right = 92.0
+offset_bottom = 110.286
+color = Color(0, 0.62352943, 0, 1)
+
+[node name="ColorRect" type="ColorRect" parent="PhoneDisplay/TextureRect/BankView" unique_id=1106172434]
+layout_mode = 0
+offset_left = 20.571426
+offset_top = 100.0
+offset_right = 23.428574
+offset_bottom = 112.57143
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="PhoneDisplay/TextureRect/BankView" unique_id=661205450]
+layout_mode = 0
+offset_left = 4.571429
+offset_top = 37.142853
+offset_right = 70.57143
+offset_bottom = 54.142853
+text = "Balance:"
+label_settings = SubResource("LabelSettings_eld54")
+
+[node name="Label2" type="Label" parent="PhoneDisplay/TextureRect/BankView" unique_id=617838633]
+layout_mode = 0
+offset_left = 15.428572
+offset_top = 51.999996
+offset_right = 104.42857
+offset_bottom = 86.0
+text = "$500.49"
+label_settings = SubResource("LabelSettings_3swnk")
+
+[node name="Label3" type="Label" parent="PhoneDisplay/TextureRect/BankView" unique_id=1125991968]
+layout_mode = 0
+offset_left = 8.571445
+offset_top = 152.0
+offset_right = 114.57144
+offset_bottom = 181.0
+text = "$204.41 left to
+financial freedom!"
+label_settings = SubResource("LabelSettings_eld54")
+
+[node name="TextureRect" type="TextureRect" parent="PhoneDisplay/TextureRect/BankView" unique_id=696772409]
+layout_mode = 0
+offset_left = 88.0
+offset_top = 94.85713
+offset_right = 120.0
+offset_bottom = 126.85713
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("6_0m4u7")
+
+[node name="TextureRect2" type="TextureRect" parent="PhoneDisplay/TextureRect/BankView" unique_id=1086448590]
+layout_mode = 0
+offset_left = 67.99999
+offset_top = 119.428566
+offset_right = 99.99999
+offset_bottom = 151.42856
+rotation = -0.33205482
+texture = ExtResource("7_apjy4")
+
+[node name="TextureRect3" type="TextureRect" parent="PhoneDisplay/TextureRect/BankView" unique_id=739496928]
+layout_mode = 0
+offset_left = 9.714285
+offset_top = 8.571428
+offset_right = 282.7143
+offset_bottom = 72.57143
+scale = Vector2(0.38296825, 0.38296825)
+texture = ExtResource("8_5n1hp")
 
 [node name="HandController" type="Control" parent="PhoneDisplay" unique_id=870589063]
 anchors_preset = 0
@@ -162,6 +255,7 @@ offset_right = 40.0
 offset_bottom = 40.0
 scale = Vector2(0.115, 0.115)
 script = ExtResource("4_047uy")
+metadata/_edit_lock_ = true
 
 [node name="TextureRect" type="TextureRect" parent="PhoneDisplay/HandController" unique_id=794678660]
 z_index = -1
@@ -171,6 +265,7 @@ offset_top = -1600.0001
 offset_right = 537.4409
 offset_bottom = 447.99988
 texture = ExtResource("5_5pdws")
+metadata/_edit_lock_ = true
 
 [node name="TextureRect2" type="TextureRect" parent="PhoneDisplay/HandController" unique_id=546674859]
 layout_mode = 0
@@ -180,3 +275,4 @@ offset_right = 537.4409
 offset_bottom = 447.99988
 pivot_offset = Vector2(1300, 900)
 texture = ExtResource("6_hd3ao")
+metadata/_edit_lock_ = true

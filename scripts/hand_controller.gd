@@ -42,7 +42,7 @@ func set_pose(pose: Pose) -> void:
 
 func next_swipe_frame() -> void:
 	if anim_frame == 4 or anim_frame == -1:
-		set_pose(Pose.MIDDLE)
+		set_pose(Pose.TOP)
 		return
 	texrect_back.texture = hand_library.swipe_back[anim_frame]
 	texrect_front.texture = hand_library.swipe_front[anim_frame]

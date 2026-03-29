@@ -47,6 +47,7 @@ var gas_usage_rate := 1.1
 
 func _ready() -> void:
 	hud = get_node("/root/World/CanvasLayer/HUD") as HUDController
+	hud.bank_view.set_money(money)
 	
 func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("camera_toggle"):
@@ -92,10 +93,14 @@ func _physics_process(delta: float) -> void:
 	
 	if Input.is_action_just_pressed("phone_confirm"):
 		hud.hand_controller.set_pressed(true)
-		var order := hud.phone_display.get_order(phone_selected_index)
-		if order:
-			active_orders.push_back(order)
-			start_order.emit(order)
+		if hud.phone_display.current_app == PhoneDisplay.App.ORDERS:
+			var order := hud.phone_display.get_order(phone_selected_index)
+			if order and order.status == Order.Status.PENDING:
+				active_orders.push_back(order)
+				start_order.emit(order)
+		if hud.phone_display.current_app == PhoneDisplay.App.MAP:
+			# TODO: toggle zoom? toggle additional overlay?
+			pass
 	elif Input.is_action_just_released("phone_confirm"):
 		hud.hand_controller.set_pressed(false)
 	
@@ -141,6 +146,7 @@ func deal_with_gas(delta: float) -> void:
 
 func add_money(value: float) -> void:
 	money += value
+	hud.bank_view.set_money(money)
 	if value > 0:
 		points += (value * 100) as int
 

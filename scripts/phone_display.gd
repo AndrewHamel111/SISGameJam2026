@@ -5,13 +5,15 @@ extends Control
 @onready var order_display : PackedScene = load("res://scenes/order_display.tscn")
 @onready var app_views: Array[Control] = [
 	$TextureRect/OrdersView,
-	$TextureRect/MapView
+	$TextureRect/MapView,
+	$TextureRect/BankView,
 ]
 
 enum App
 {
 	ORDERS = 0,
 	MAP,
+	BANK,
 	COUNT,
 }
 
@@ -43,6 +45,8 @@ func set_orders(orders_root: Node) -> void:
 		add_order(child as Order)
 
 func select_order(index: int) -> void:
+	if current_app != App.ORDERS:
+		return
 	var children := vbox.get_children()
 	for node in children:
 		var order := node as OrderDisplay
@@ -62,7 +66,7 @@ func get_order(index: int) -> Order:
 	return (children[index] as OrderDisplay).order
 
 func scroll_apps(direction: int) -> void:
-	current_app += 1
+	current_app += direction
 	if current_app == App.COUNT as int:
 		current_app = 0
 	elif current_app == -1:

@@ -148,6 +148,14 @@ func _physics_process(delta: float) -> void:
 	hud.set_speed(roundi(lerpf(0, 50, forward_velocity / CAR_MAX_SPEED_WITH_GAS)))
 	velocity = basis * Vector3(0, 0, 1) * forward_velocity
 	move_and_slide()
+	for i in get_slide_collision_count():
+		var collision := get_slide_collision(i)
+		var normal := collision.get_normal()
+		var my_direction := velocity.normalized()
+		var dot := normal.dot(my_direction)
+		if dot < -0.7:
+			forward_velocity = 0
+
 	deal_with_gas(delta)
 	deal_with_grass(delta)
 	deal_with_car_wheel(delta)

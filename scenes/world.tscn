@@ -10,6 +10,18 @@
 [ext_resource type="PackedScene" uid="uid://bpt784eyxt3ds" path="res://scenes/hud.tscn" id="5_71j4m"]
 [ext_resource type="PackedScene" uid="uid://b1qr3gehd25ry" path="res://scenes/gas_station.tscn" id="7_i7141"]
 
+[sub_resource type="Curve" id="Curve_7r4gi"]
+_limits = [0.0, 15.0, 0.0, 5.0]
+bake_resolution = 6
+_data = [Vector2(0, 1.5), 0.0, 0.0, 0, 0, Vector2(5, 9), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_w7kh3"]
+_limits = [0.0, 15.0, 0.0, 5.0]
+bake_resolution = 6
+_data = [Vector2(0, 2.5), 0.0, 0.0, 0, 0, Vector2(5, 15), 0.0, 0.0, 0, 0]
+point_count = 2
+
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_4wyf3"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
 ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -24,6 +36,8 @@ tonemap_mode = 2
 
 [node name="World" type="Node3D" unique_id=1487770028]
 script = ExtResource("1_7r4gi")
+order_reward_min = SubResource("Curve_7r4gi")
+order_reward_max = SubResource("Curve_w7kh3")
 possible_order_names = Array[String](["Jimmy Lord", "Andre Whamel", "Mart Forg", "Ian Wark", "Hilly Bamilton", "Fletchaaah"])
 
 [node name="Orders" type="Node" parent="." unique_id=417349160]

@@ -1,6 +1,10 @@
 class_name Player
 extends CharacterBody3D
 
+signal start_order(order: Order)
+signal pickup_order(order: Order)
+signal deliver_order(order: Order)
+
 @onready var interior_root: Node3D = $InteriorRoot
 @onready var exterior_root: Node3D = $ExteriorRoot
 
@@ -10,6 +14,12 @@ extends CharacterBody3D
 
 var camera_mode: bool = false
 var hud: HUDController
+
+# progression
+var money: float = 50
+var points: int = 0
+var rating: int = 1
+var active_orders: Array[Order]
 
 # phone control
 var phone_selected_index : int = 0
@@ -73,9 +83,17 @@ func _physics_process(delta: float) -> void:
 		phone_selected_index = maxi(phone_selected_index, 0)
 		hud.hand_controller.set_pose(phone_selected_index as HandController.Pose)
 		hud.phone_display.select_order(phone_selected_index)
+	if Input.is_action_just_pressed("phone_left"):
+		hud.hand_controller.set_pose(HandController.Pose.SWIPE_LEFT)
+	elif Input.is_action_just_pressed("phone_right"):
+		hud.hand_controller.set_pose(HandController.Pose.SWIPE_RIGHT)
 	
 	if Input.is_action_just_pressed("phone_confirm"):
 		hud.hand_controller.set_pressed(true)
+		var order := hud.phone_display.get_order(phone_selected_index)
+		if order:
+			active_orders.push_back(order)
+			start_order.emit(order)
 	elif Input.is_action_just_released("phone_confirm"):
 		hud.hand_controller.set_pressed(false)
 	
@@ -118,3 +136,31 @@ func deal_with_gas(delta: float) -> void:
 			gas_remaining += gas_station.fill_rate * delta
 			if gas_remaining > gas_max:
 				gas_remaining = gas_max
+
+func add_money(value: float) -> void:
+	money += value
+	if value > 0:
+		points += (value * 100) as int
+
+func add_rating(value: int) -> void:
+	rating += value
+	rating = clampi(rating, 0, 5)
+
+func house_area_entered(house: House) -> void:
+	var orders_to_remove: Array[Order]
+	for order in active_orders:
+		if order.status == Order.Status.STARTED and order.pickup_address == house.name:
+			pickup_order.emit(order)
+		elif order.status == Order.Status.PICKED_UP and order.destination_address == house.name:
+			deliver_order.emit(order)
+			orders_to_remove.push_back(order)
+	for order in orders_to_remove:
+		active_orders.erase(order)
+
+func handle_timeout() -> void:
+	var timed_out_orders : Array[Order]
+	for order in active_orders:
+		if order.is_expired():
+			timed_out_orders.push_back(order)
+	for order in timed_out_orders:
+		active_orders.erase(order)

@@ -1,10 +1,33 @@
-[gd_scene format=3 uid="uid://c3h457eqw7pw1"]
+[gd_scene format=4 uid="uid://c3h457eqw7pw1"]
 
 [ext_resource type="Script" uid="uid://b2ed4566acado" path="res://entities/house/house.gd" id="1_lxo5e"]
+[ext_resource type="Material" uid="uid://utrwrlx3w6dq" path="res://resources/materials/zone_material.tres" id="2_fts8e"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_x8wvn"]
 transparency = 1
 albedo_color = Color(1, 0, 0, 0.3137255)
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_lxo5e"]
+_surfaces = [{
+"aabb": AABB(-1.7446289, -0.5, -2.4765625, 3.4892578, 1, 4.953125),
+"attribute_data": PackedByteArray("AACAPwAAgD8AAIA/AAAAAAAAAAAAAAAAAACAPwAAgD8AAIA/AAAAAAAAAAAAAAAAAACAPwAAgD8AAIA/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAPwAAgD8AAIA/AACAPwAAgD8AAIA/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAPwAAgD8AAIA/AAAAAAAAAAAAAAAAAACAPwAAgD8AAIA/AAAAAAAAAAAAAAAAAACAPwAAgD8AAIA/AACAPwAAgD8AAIA/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAPwAAgD8AAIA/AACAPwAAgD8AAIA/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAPwAAgD8AAIA/"),
+"format": 34359738391,
+"material": SubResource("StandardMaterial3D_x8wvn"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 36,
+"vertex_data": PackedByteArray("AFDfvwAAAL8AgB5AAFDfvwAAAL8AgB7AAFDfvwAAAD8AgB7AAFDfPwAAAL8AgB7AAFDfvwAAAL8AgB7AAFDfvwAAAL8AgB5AAFDfvwAAAD8AgB7AAFDfvwAAAL8AgB7AAFDfPwAAAL8AgB7AAFDfvwAAAD8AgB7AAFDfvwAAAD8AgB5AAFDfvwAAAL8AgB5AAFDfvwAAAL8AgB5AAFDfvwAAAD8AgB5AAFDfPwAAAD8AgB5AAFDfPwAAAD8AgB5AAFDfvwAAAD8AgB5AAFDfvwAAAD8AgB7AAFDfvwAAAL8AgB5AAFDfPwAAAL8AgB5AAFDfPwAAAL8AgB7AAFDfPwAAAD8AgB5AAFDfPwAAAL8AgB5AAFDfvwAAAL8AgB5AAFDfPwAAAL8AgB7AAFDfPwAAAL8AgB5AAFDfPwAAAD8AgB5AAFDfPwAAAL8AgB7AAFDfPwAAAD8AgB7AAFDfvwAAAD8AgB7AAFDfvwAAAD8AgB7AAFDfPwAAAD8AgB7AAFDfPwAAAD8AgB5AAFDfPwAAAD8AgB5AAFDfPwAAAD8AgB7AAFDfPwAAAL8AgB7AAAD/f/9//n8AAP9//3/+fwAA/3//f/5//38AAP//AAD/fwAA//8AAP9/AAD//wAA/////wAA/z//////AAD/P/////8AAP8/AAD/f/9//n8AAP9//3/+fwAA/3//f/5//3//fwAA/z//f/9/AAD/P/9//38AAP8//3//////AAD/f/////8AAP9//////wAA/38AAP//AAD/fwAA//8AAP9/AAD//wAA/3//fwAA/z//f/9/AAD/P/9//38AAP8/////f/9//n////9//3/+f////3//f/5//////wAA/z//////AAD/P/////8AAP8//3//////AAD/f/////8AAP9//////wAA////f/9//n////9//3/+f////3//f/5/")
+}]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_edf2c"]
+material = ExtResource("2_fts8e")
+top_radius = 1.75
+bottom_radius = 1.75
+height = 100.0
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_fts8e"]
+height = 1.0601807
+radius = 1.5288086
 
 [node name="CSGBox3D21" type="Node3D" unique_id=1729759525]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, 0)
@@ -18,5 +41,30 @@ size = Vector3(3.878, 3.5, 4.912)
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="." unique_id=1834397232]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.690756, 0.5095842, -1.0692362e-07)
+visible = false
 size = Vector3(3.4892578, 1, 4.953125)
 material = SubResource("StandardMaterial3D_x8wvn")
+
+[node name="CSGBakedMeshInstance3D" type="MeshInstance3D" parent="." unique_id=1840367808]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.690756, 0.5095842, -1.0692362e-07)
+visible = false
+mesh = SubResource("ArrayMesh_lxo5e")
+
+[node name="Beacon" type="Node3D" parent="." unique_id=437529770]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.751203, 0, 0.014888719)
+visible = false
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Beacon" unique_id=765517455]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 50, 0)
+mesh = SubResource("CylinderMesh_edf2c")
+
+[node name="Area3D" type="Area3D" parent="." unique_id=2091927335]
+collision_layer = 4
+collision_mask = 2
+monitoring = false
+
+[node name="CSGBakedCollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=761229438]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.690756, 0.35876632, -1.0692362e-07)
+shape = SubResource("CylinderShape3D_fts8e")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]

@@ -3,10 +3,11 @@
 [ext_resource type="Script" uid="uid://cs25xmu28i8fr" path="res://scripts/hud_controller.gd" id="1_ahhtf"]
 [ext_resource type="Script" uid="uid://d0ygxr0cxvt4s" path="res://scripts/phone_display.gd" id="2_5ysmq"]
 [ext_resource type="Texture2D" uid="uid://dr2lsonich864" path="res://resources/png/phone_blank.png" id="2_oo0fn"]
+[ext_resource type="PackedScene" uid="uid://wpnx8ykjk0rn" path="res://scenes/order_display.tscn" id="4_5pdws"]
 [ext_resource type="Script" uid="uid://nahkn1jsqqlv" path="res://scripts/hand_controller.gd" id="4_047uy"]
 [ext_resource type="Texture2D" uid="uid://b7ibh1jkyg2sq" path="res://resources/png/hand_orders/top_back.png" id="5_5pdws"]
 [ext_resource type="Texture2D" uid="uid://cmh2j8itojxry" path="res://resources/png/hand_orders/top_front.png" id="6_hd3ao"]
-[ext_resource type="Script" uid="uid://2ckk0ywviwat" path="res://scripts/minimap.gd" id="7_5pdws"]
+[ext_resource type="Script" path="res://scripts/minimap.gd" id="7_5pdws"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_k0juu"]
 font_size = 48
@@ -14,6 +15,13 @@ font_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_rwgxs"]
 font_size = 48
+
+[sub_resource type="FontVariation" id="FontVariation_5pdws"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_hd3ao"]
+font = SubResource("FontVariation_5pdws")
+font_size = 27
+font_color = Color(0, 0.2, 0, 1)
 
 [node name="HUD" type="Control" unique_id=629020837]
 layout_mode = 3
@@ -75,12 +83,56 @@ offset_right = -44.71428
 offset_bottom = -16.571426
 texture = ExtResource("2_oo0fn")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="PhoneDisplay/TextureRect" unique_id=1704557126]
+[node name="OrdersView" type="Control" parent="PhoneDisplay/TextureRect" unique_id=1966205500]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PhoneDisplay/TextureRect/OrdersView" unique_id=1704557126]
 layout_mode = 0
 offset_left = 8.0
 offset_top = 8.0
 offset_right = 117.0
 offset_bottom = 148.0
+
+[node name="ColorRect" parent="PhoneDisplay/TextureRect/OrdersView/VBoxContainer" unique_id=1483125797 instance=ExtResource("4_5pdws")]
+layout_mode = 2
+
+[node name="Panel" type="ColorRect" parent="PhoneDisplay/TextureRect/OrdersView" unique_id=910206668]
+layout_mode = 0
+offset_left = 5.1428566
+offset_top = 151.99998
+offset_right = 119.42856
+offset_bottom = 191.99998
+color = Color(0, 0.76862746, 0, 1)
+
+[node name="Label" type="Label" parent="PhoneDisplay/TextureRect/OrdersView/Panel" unique_id=1458525506]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -41.142853
+offset_top = -11.5
+offset_right = 41.142853
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "+$10.00"
+label_settings = SubResource("LabelSettings_hd3ao")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MapView" type="Control" parent="PhoneDisplay/TextureRect" unique_id=228295085]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="BankView" type="Control" parent="PhoneDisplay/TextureRect" unique_id=764700452]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
 
 [node name="HandController" type="Control" parent="PhoneDisplay" unique_id=870589063]
 anchors_preset = 0
@@ -108,6 +160,7 @@ pivot_offset = Vector2(1300, 900)
 texture = ExtResource("6_hd3ao")
 
 [node name="Node2D" type="Node2D" parent="." unique_id=1275958081]
+visible = false
 script = ExtResource("7_5pdws")
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="Node2D" unique_id=514925115]
@@ -120,7 +173,7 @@ metadata/_edit_use_anchors_ = true
 [node name="SubViewport" type="SubViewport" parent="Node2D/SubViewportContainer" unique_id=630261304]
 handle_input_locally = false
 size = Vector2i(209, 340)
-render_target_update_mode = 4
+render_target_update_mode = 0
 
 [node name="MinimapCamera" type="Camera3D" parent="Node2D/SubViewportContainer/SubViewport" unique_id=731611126]
 unique_name_in_owner = true

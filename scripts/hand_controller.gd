@@ -13,9 +13,12 @@ enum Pose
 	TOP = 0,
 	MIDDLE,
 	BOTTOM,
-	#SWIPE_LEFT,
-	#SWIPE_RIGHT
+	SWIPE_LEFT,
+	SWIPE_RIGHT
 }
+
+var swipe_anim: Pose = Pose.TOP
+var anim_frame: int = 0
 
 func set_pose(pose: Pose) -> void:
 	match pose:
@@ -28,12 +31,23 @@ func set_pose(pose: Pose) -> void:
 		Pose.BOTTOM:
 			texrect_back.texture = hand_library.bottom_back
 			texrect_front.texture = hand_library.bottom_front
-		#Pose.SWIPE_LEFT:
-			## TODO: start quick left-swipe animation
-			#pass
-		#Pose.SWIPE_RIGHT:
-			## TODO: start quick right-swipe animation
-			#pass
+		Pose.SWIPE_LEFT:
+			swipe_anim = pose
+			anim_frame = 0
+			next_swipe_frame()
+		Pose.SWIPE_RIGHT:
+			swipe_anim = pose
+			anim_frame = 3
+			next_swipe_frame()
+
+func next_swipe_frame() -> void:
+	if anim_frame == 4 or anim_frame == -1:
+		set_pose(Pose.MIDDLE)
+		return
+	texrect_back.texture = hand_library.swipe_back[anim_frame]
+	texrect_front.texture = hand_library.swipe_front[anim_frame]
+	anim_frame += 1 if swipe_anim == Pose.SWIPE_LEFT else -1
+	get_tree().create_timer(0.1).timeout.connect(next_swipe_frame)
 
 func set_pressed(pressed: bool) -> void:
 	if pressed:

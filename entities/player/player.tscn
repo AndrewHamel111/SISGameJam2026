@@ -13,6 +13,8 @@ point_count = 2
 size = Vector3(0.9805908, 0.5928345, 1.989624)
 
 [node name="Player" type="CharacterBody3D" unique_id=1191188793]
+collision_layer = 2
+collision_mask = 7
 script = ExtResource("1_sglur")
 car_acceleration_curve = SubResource("Curve_sglur")
 metadata/_custom_type_script = "uid://dtxuvpfea4hmd"

@@ -1,19 +1,28 @@
 class_name PhoneDisplay
 extends Control
 
-@onready var vbox: VBoxContainer = $TextureRect/VBoxContainer
+@onready var vbox: VBoxContainer = $TextureRect/OrdersView/VBoxContainer
 @onready var order_display : PackedScene = load("res://scenes/order_display.tscn")
+
+static var status_color: Dictionary[Order.Status, Color] = {
+	Order.Status.PENDING: Color.LIGHT_GRAY,
+	Order.Status.STARTED: Color.LIGHT_YELLOW,
+	Order.Status.PICKED_UP: Color.SKY_BLUE,
+	Order.Status.COMPLETED: Color.LIME,
+	Order.Status.FAILED: Color.INDIAN_RED,
+}
 
 func add_order(order_details: Order) -> void:
 	var node := order_display.instantiate() as OrderDisplay
-	var address := "%d %s" % [order_details.destination_street_number, order_details.destination_street_name]
-	node.set_details(order_details.name, address, order_details.value, order_details.duration)
+	node.set_order(order_details)
+	node.color = status_color[order_details.status]
+	#node.set_indexed("modulate:a", 0.5)
 	vbox.add_child(node)
 
 func set_orders(orders_root: Node) -> void:
 	for node in vbox.get_children():
 		vbox.remove_child(node)
-		node.free()
+		node.queue_free()
 	for child in orders_root.get_children():
 		if not child is Order:
 			push_error("Node which is not Order is child of /root/World/Orders !")
@@ -24,8 +33,17 @@ func select_order(index: int) -> void:
 	var children := vbox.get_children()
 	for node in children:
 		var order := node as OrderDisplay
-		order.color = Color.LIGHT_GRAY
+		order.color = status_color[order.order.status]
+		order.set_indexed("modulate:a", 0.5)
 	if index < children.size():
 		var selected := children[index] as OrderDisplay
 		if selected:
-			selected.color = Color.LIGHT_CYAN
+			selected.set_indexed("modulate:a", 1.0)
+			#selected.color = Color.LIGHT_CYAN
+
+func get_order(index: int) -> Order:
+	var children := vbox.get_children()
+	if index >= children.size():
+		push_error("Tried to get_order for an index (%d) exceeding the order slots on the phone!" % [index])
+		return null
+	return (children[index] as OrderDisplay).order

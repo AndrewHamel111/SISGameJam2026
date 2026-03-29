@@ -70,7 +70,7 @@ func create_new_order() -> Order:
 	order.destination_street_name = destination.street_name
 	
 	order.value = get_next_order_value()
-	order.duration = 35.0
+	order.duration = get_next_order_duration()
 	
 	return order
 

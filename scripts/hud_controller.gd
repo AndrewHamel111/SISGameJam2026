@@ -6,6 +6,7 @@ extends Control
 @onready var phone_display: PhoneDisplay = $PhoneDisplay
 @onready var hand_controller: HandController = $PhoneDisplay/HandController
 @onready var bank_view: BankView = $PhoneDisplay/TextureRect/BankView
+@onready var map_view: Minimap = $PhoneDisplay/TextureRect/MapView
 
 func set_speed(speed: int) -> void:
 	label.text = "%d MPH" % [speed]

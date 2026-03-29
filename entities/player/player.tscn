@@ -5,7 +5,9 @@
 [ext_resource type="PackedScene" uid="uid://cgpnr6pcniiqn" path="res://entities/player/car/car_exterior.tscn" id="2_sglur"]
 [ext_resource type="AudioStream" uid="uid://bq2onhmacau4p" path="res://resources/ogg/order_submit.ogg" id="4_bls4j"]
 [ext_resource type="AudioStream" uid="uid://c1bkowcbnsbs6" path="res://resources/wav/tonehigh.wav" id="5_8fjmc"]
+[ext_resource type="AudioStream" uid="uid://bfxyfqq30bv6o" path="res://resources/wav/tonefail.wav" id="5_26q78"]
 [ext_resource type="AudioStream" uid="uid://lqqos3mthchx" path="res://resources/wav/tonelow.wav" id="6_qiwj3"]
+[ext_resource type="Texture2D" uid="uid://1ib6q74rpnd4" path="res://resources/png/player_icon.png" id="7_qiwj3"]
 
 [sub_resource type="Curve" id="Curve_sglur"]
 _limits = [0.0, 5.0, 0.0, 1.0]
@@ -14,6 +16,12 @@ point_count = 2
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_sglur"]
 size = Vector3(0.9805908, 0.5928345, 1.989624)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8fjmc"]
+albedo_color = Color(0.31013283, 0.5424092, 1, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qiwj3"]
+albedo_color = Color(0, 0, 0, 1)
 
 [node name="Player" type="CharacterBody3D" unique_id=1191188793]
 collision_layer = 2
@@ -29,6 +37,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.2874603e-05, 0.002041459, 
 
 [node name="CameraInterior" type="Camera3D" parent="InteriorRoot" unique_id=6072620]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0.17214024, 0.6052936, -0.046283633)
+cull_mask = 1048063
 current = true
 
 [node name="ExteriorRoot" type="Node3D" parent="." unique_id=174343180]
@@ -40,6 +49,7 @@ visible = false
 
 [node name="CameraExterior" type="Camera3D" parent="ExteriorRoot/CameraExteriorRoot" unique_id=1244619972]
 transform = Transform3D(-1, -1.7763568e-15, -8.742278e-08, -1.6445838e-08, 0.9821464, 0.18811847, 8.5861956e-08, 0.18811847, -0.9821464, 0, 2.3398886, -3.1461935)
+cull_mask = 1048063
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1245159616]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.1035156e-05, 0.29727173, -0.0017700195)
@@ -53,8 +63,36 @@ collision_mask = 2
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.14789376, 0.3761217, 0.19928333)
 stream = ExtResource("4_bls4j")
 
+[node name="ToneFailStream" type="AudioStreamPlayer3D" parent="." unique_id=1428339160]
+stream = ExtResource("5_26q78")
+
 [node name="ToneBStream" type="AudioStreamPlayer3D" parent="." unique_id=114631078]
 stream = ExtResource("5_8fjmc")
 
 [node name="ToneAStream" type="AudioStreamPlayer3D" parent="." unique_id=1818083975]
 stream = ExtResource("6_qiwj3")
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="." unique_id=1657058005]
+transform = Transform3D(4.221244, 0, 0, 0, -1.0299147e-07, -0.99999976, 0, 2.3561702, -4.3711378e-08, 0, 16.281986, -6.3573275)
+visible = false
+layers = 512
+cast_shadow = 0
+polygon = PackedVector2Array(0.0038596839, 1.0794308, -1.0836335, 0.13975704, -0.0041721165, 3.8806717, 1.0752894, 0.16751897)
+material = SubResource("StandardMaterial3D_8fjmc")
+
+[node name="CSGPolygon3D2" type="CSGPolygon3D" parent="." unique_id=864904240]
+transform = Transform3D(5.8727865, 0, 0, 0, -1.5514664e-07, -0.99999976, 0, 3.5493412, -4.3711378e-08, 0, 15.127108, -8.737264)
+visible = false
+layers = 512
+cast_shadow = 0
+polygon = PackedVector2Array(0.0038596839, 1.0794308, -1.0836335, 0.13975704, -0.0041721165, 3.8806717, 1.0752894, 0.16751897)
+material = SubResource("StandardMaterial3D_qiwj3")
+
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=784354128]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.4793453, 0)
+layers = 512
+pixel_size = 0.006
+billboard = 1
+fixed_size = true
+texture_filter = 0
+texture = ExtResource("7_qiwj3")

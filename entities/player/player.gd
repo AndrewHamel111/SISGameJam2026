@@ -117,7 +117,7 @@ func _physics_process(delta: float) -> void:
 				start_order.emit(order)
 				$ToneAStream.play()
 		if hud.phone_display.current_app == PhoneDisplay.App.MAP:
-			# TODO: toggle zoom? toggle additional overlay?
+			hud.map_view.toggle_zoom()
 			pass
 	elif Input.is_action_just_released("phone_confirm"):
 		hud.hand_controller.set_pressed(false)
@@ -216,3 +216,5 @@ func handle_timeout() -> void:
 			timed_out_orders.push_back(order)
 	for order in timed_out_orders:
 		active_orders.erase(order)
+	if timed_out_orders.size() > 0:
+		$ToneFailStream.play()

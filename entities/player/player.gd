@@ -32,11 +32,12 @@ const CAR_TURN_SPEED := 10.0
 const MIN_TURN_ANGLE := -1.25
 const MAX_TURN_ANGLE := 1.25
 const CAR_DECELERATION := 2.5
+const CAR_DECELERATION_ON_GRASS := 10.0
 const CAR_COAST_DECELERATION := 0.5
 const CAR_BRAKING := 20.0
 const CAR_MAX_SPEED_WITH_GAS := 25.0
 const CAR_MAX_SPEED_NO_GAS := 5.0
-const CAR_MAX_SPEED_ON_GRASS := 5.0
+const CAR_MAX_SPEED_ON_GRASS := 3.0
 var max_speed := CAR_MAX_SPEED_WITH_GAS
 var forward_velocity := 0.0
 var turn_angle := 0.0
@@ -82,8 +83,10 @@ func _physics_process(delta: float) -> void:
 
 	if Input.is_action_pressed("accelerate"):
 		in_reverse = false
-		if gas_remaining <= 0 or on_grass:
+		if gas_remaining <= 0:
 			forward_velocity = move_toward(forward_velocity, max_speed, delta * CAR_DECELERATION)
+		if on_grass:
+			forward_velocity = move_toward(forward_velocity, max_speed, delta * CAR_DECELERATION_ON_GRASS)
 		else:
 			forward_velocity += delta * car_acceleration_curve.sample(forward_velocity / max_speed)
 			forward_velocity = minf(forward_velocity, max_speed)

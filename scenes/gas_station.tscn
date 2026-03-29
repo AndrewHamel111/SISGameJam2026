@@ -4,6 +4,7 @@
 [ext_resource type="Material" uid="uid://utrwrlx3w6dq" path="res://resources/materials/zone_material.tres" id="2_jwdhq"]
 [ext_resource type="AudioStream" uid="uid://cu7h82451xi40" path="res://resources/wav/gurgling-liquid.wav" id="2_v71p2"]
 [ext_resource type="AudioStream" uid="uid://bvftx5kpispwn" path="res://resources/wav/gas-station-bell.wav" id="3_yidqh"]
+[ext_resource type="Texture2D" uid="uid://do7w0wc6xjpwq" path="res://resources/png/gas_light.png" id="5_yidqh"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ql7fd"]
 albedo_color = Color(0, 0, 0, 1)
@@ -59,6 +60,16 @@ mesh = SubResource("CylinderMesh_6hev2")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="pump_area" unique_id=1142943130]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.593, 0.99571943, -0.876)
 shape = SubResource("BoxShape3D_jwdhq")
+
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=1336762545]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5206306, 4.4793453, -4.4106617)
+layers = 512
+modulate = Color(1, 0.67058825, 0.11372549, 1)
+pixel_size = 0.003
+billboard = 1
+fixed_size = true
+texture_filter = 0
+texture = ExtResource("5_yidqh")
 
 [connection signal="body_entered" from="pump_area" to="." method="_on_area_3d_body_entered"]
 [connection signal="body_exited" from="pump_area" to="." method="_on_area_3d_body_exited"]

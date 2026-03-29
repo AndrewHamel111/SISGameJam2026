@@ -22,15 +22,12 @@ ordered in descending priority
     - [x] earn money from completing orders
   - [x] gas up
     - [x] filling up with gas costs money
-    - [ ] gassing up needs feedback
+    - [x] gassing up needs feedback
   - [x] penalties
     - [x] failing an order reduces rating on app, leads to lower $$ earned
-    - [ ] missing feedback for failing orders!
+    - [x] missing feedback for failing orders!
 - [x] minimap
     - [ ] needs arrow or some indicator of which direction to head
-- [ ] easy graphical wins
-  - [ ] improve shadow res / jaggys
-  - [ ] minor adjustments to car mesh
 
 - [ ] traffic
 - [ ] improve car controls
@@ -45,6 +42,9 @@ ordered in descending priority
   - [ ] basic texturing
   - [ ] steering wheel turns
 - [x] bank app (shows goal and current balance)
+- [ ] easy graphical wins
+  - [ ] improve shadow res / jaggys
+  - [ ] minor adjustments to car mesh
 
 ## Stretch Ideas (post-jam)
 

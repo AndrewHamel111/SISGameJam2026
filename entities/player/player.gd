@@ -33,13 +33,14 @@ const MIN_TURN_ANGLE := -1.25
 const MAX_TURN_ANGLE := 1.25
 const CAR_DECELERATION := 2.5
 const CAR_COAST_DECELERATION := 0.5
-const CAR_BRAKING := 10.0
+const CAR_BRAKING := 20.0
 const CAR_MAX_SPEED_WITH_GAS := 25.0
 const CAR_MAX_SPEED_NO_GAS := 5.0
 const CAR_MAX_SPEED_ON_GRASS := 5.0
 var max_speed := CAR_MAX_SPEED_WITH_GAS
 var forward_velocity := 0.0
 var turn_angle := 0.0
+var in_reverse := false
 
 var on_grass := false
 
@@ -80,14 +81,21 @@ func _physics_process(delta: float) -> void:
 		turn_angle = move_toward(turn_angle, 0, delta * CAR_TURN_SPEED)
 
 	if Input.is_action_pressed("accelerate"):
+		in_reverse = false
 		if gas_remaining <= 0 or on_grass:
 			forward_velocity = move_toward(forward_velocity, max_speed, delta * CAR_DECELERATION)
 		else:
 			forward_velocity += delta * car_acceleration_curve.sample(forward_velocity / max_speed)
 			forward_velocity = minf(forward_velocity, max_speed)
-	else:
+	elif not in_reverse or not Input.is_action_pressed("brake"):
 		var deceleration : float = CAR_BRAKING if Input.is_action_pressed("brake") else CAR_DECELERATION
 		forward_velocity = move_toward(forward_velocity, 0, delta * deceleration)
+
+	if forward_velocity == 0 and Input.is_action_just_pressed("brake"):
+		in_reverse = true
+
+	if in_reverse and Input.is_action_pressed("brake"):
+		forward_velocity = move_toward(forward_velocity, -4, delta * CAR_DECELERATION)
 
 	#print("Velocity: ", forward_velocity, " Gas: ", gas_remaining)
 
@@ -121,9 +129,14 @@ func _physics_process(delta: float) -> void:
 			pass
 	elif Input.is_action_just_released("phone_confirm"):
 		hud.hand_controller.set_pressed(false)
-	
-	if forward_velocity > 0.1:
+
+	if true: #forward_velocity > 0.1:
 		var car_turn_angle := lerpf(turn_angle, turn_angle * 0.5, forward_velocity / CAR_MAX_SPEED_WITH_GAS)
+		if in_reverse:
+			car_turn_angle = lerpf(turn_angle, turn_angle * 0.5, -forward_velocity / -10)
+
+		#print( "angle", car_turn_angle )
+
 		rotate_y(deg_to_rad(car_turn_angle))
 		camera_exterior_root.rotation = Vector3(0, deg_to_rad(turn_angle), 0)
 	

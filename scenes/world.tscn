@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://b1qr3gehd25ry" path="res://scenes/gas_station.tscn" id="7_i7141"]
 [ext_resource type="PackedScene" path="res://scenes/road_tile_3int.tscn" id="7_q5onr"]
 [ext_resource type="PackedScene" path="res://scenes/road_tile_4int.tscn" id="8_jhx03"]
-[ext_resource type="Script" path="res://scripts/traffic_car.gd" id="9_w7kh3"]
+[ext_resource type="PackedScene" uid="uid://437as2nipgpy" path="res://scenes/traffic_car.tscn" id="9_e3hyu"]
 
 [sub_resource type="Curve" id="Curve_7r4gi"]
 _limits = [0.0, 15.0, 0.0, 5.0]
@@ -43,13 +43,6 @@ _data = {
 "tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
 }
 point_count = 15
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7r4gi"]
-albedo_color = Color(0.19215687, 0.23921569, 1, 1)
-
-[sub_resource type="BoxMesh" id="BoxMesh_w7kh3"]
-material = SubResource("StandardMaterial3D_7r4gi")
-size = Vector3(0.5, 0.5, 1)
 
 [node name="World" type="Node3D" unique_id=1487770028]
 script = ExtResource("1_7r4gi")
@@ -1214,31 +1207,125 @@ transform = Transform3D(0.66870254, 0, -0.7435301, 0, 1, 0, 0.7435301, 0, 0.6687
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.20524, 0, 96.22355)
 curve = SubResource("Curve3D_7r4gi")
 
-[node name="PathFollow3D" type="PathFollow3D" parent="paths/Path3D" unique_id=1118731680]
-transform = Transform3D(-0.0007430733, 0, -0.9999972, 0, 1, 0, 0.9999972, 0, -0.0007430733, 3.98, 0.25, 0.66)
-v_offset = 0.25
-script = ExtResource("9_w7kh3")
+[node name="Car1" parent="paths/Path3D" unique_id=298190989 instance=ExtResource("9_e3hyu")]
+transform = Transform3D(-0.0007430705, 0, -0.99999344, 0, 1, 0, 0.99999344, 0, -0.0007430705, 3.98, 0.25, 0.66)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="paths/Path3D/PathFollow3D" unique_id=1407880406]
-mesh = SubResource("BoxMesh_w7kh3")
+[node name="Car2" parent="paths/Path3D" unique_id=1234435435 instance=ExtResource("9_e3hyu")]
+transform = Transform3D(-0.00074307044, 0, -0.9999934, 0, 1, 0, 0.9999934, 0, -0.00074307044, 3.98, 0.25, 0.66)
 
-[node name="PathFollow3D2" type="PathFollow3D" parent="paths/Path3D" unique_id=1166465212]
-transform = Transform3D(-0.00074307324, 0, -0.99999714, 0, 1, 0, 0.99999714, 0, -0.00074307324, 3.98, 0.25, 0.66)
-v_offset = 0.25
-script = ExtResource("9_w7kh3")
-initial_progress = 290.0
+[node name="Car3" parent="paths/Path3D" unique_id=1014113200 instance=ExtResource("9_e3hyu")]
+transform = Transform3D(-0.00074307044, 0, -0.9999933, 0, 1, 0, 0.9999933, 0, -0.00074307044, 3.98, 0.25, 0.66)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="paths/Path3D/PathFollow3D2" unique_id=857975847]
-mesh = SubResource("BoxMesh_w7kh3")
+[node name="Car4" parent="paths/Path3D" unique_id=2048174951 instance=ExtResource("9_e3hyu")]
+transform = Transform3D(-0.0007430704, 0, -0.99999326, 0, 1, 0, 0.99999326, 0, -0.0007430704, 3.98, 0.25, 0.66)
 
-[node name="PathFollow3D3" type="PathFollow3D" parent="paths/Path3D" unique_id=1094393666]
-transform = Transform3D(-0.00074307324, 0, -0.9999971, 0, 1, 0, 0.9999971, 0, -0.00074307324, 3.98, 0.25, 0.66)
-v_offset = 0.25
-script = ExtResource("9_w7kh3")
-initial_progress = 200.0
+[node name="Car5" parent="paths/Path3D" unique_id=1545220512 instance=ExtResource("9_e3hyu")]
+transform = Transform3D(-0.0007430703, 0, -0.9999932, 0, 1, 0, 0.9999932, 0, -0.0007430703, 3.98, 0.25, 0.66)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="paths/Path3D/PathFollow3D3" unique_id=1900212199]
-mesh = SubResource("BoxMesh_w7kh3")
+[node name="Car6" parent="paths/Path3D" unique_id=1664162912 instance=ExtResource("9_e3hyu")]
+transform = Transform3D(-0.00074307027, 0, -0.99999315, 0, 1, 0, 0.99999315, 0, -0.00074307027, 3.98, 0.25, 0.66)
+
+[node name="Car7" parent="paths/Path3D" unique_id=187497331 instance=ExtResource("9_e3hyu")]
+transform = Transform3D(-0.00074307027, 0, -0.9999931, 0, 1, 0, 0.9999931, 0, -0.00074307027, 3.98, 0.25, 0.66)
+
+[node name="Car8" parent="paths/Path3D" unique_id=1626352599 instance=ExtResource("9_e3hyu")]
+transform = Transform3D(-0.0007430702, 0, -0.999993, 0, 1, 0, 0.999993, 0, -0.0007430702, 3.98, 0.25, 0.66)
+
+[node name="Car9" parent="paths/Path3D" unique_id=607226935 instance=ExtResource("9_e3hyu")]
+transform = Transform3D(-0.00074307015, 0, -0.99999297, 0, 1, 0, 0.99999297, 0, -0.00074307015, 3.98, 0.25, 0.66)
+
+[node name="Car10" parent="paths/Path3D" unique_id=908333758 instance=ExtResource("9_e3hyu")]
+transform = Transform3D(-0.0007430701, 0, -0.9999929, 0, 1, 0, 0.9999929, 0, -0.0007430701, 3.98, 0.25, 0.66)
+
+[node name="Car11" parent="paths/Path3D" unique_id=483217892 instance=ExtResource("9_e3hyu")]
+transform = Transform3D(-0.00074307004, 0, -0.99999285, 0, 1, 0, 0.99999285, 0, -0.00074307004, 3.98, 0.25, 0.66)
+
+[node name="Car12" parent="paths/Path3D" unique_id=245752136 instance=ExtResource("9_e3hyu")]
+transform = Transform3D(-0.00074307004, 0, -0.9999928, 0, 1, 0, 0.9999928, 0, -0.00074307004, 3.98, 0.25, 0.66)
+
+[node name="Car13" parent="paths/Path3D" unique_id=713265888 instance=ExtResource("9_e3hyu")]
+transform = Transform3D(-0.00074307, 0, -0.9999927, 0, 1, 0, 0.9999927, 0, -0.00074307, 3.98, 0.25, 0.66)
+
+[node name="Car14" parent="paths/Path3D" unique_id=556300014 instance=ExtResource("9_e3hyu")]
+transform = Transform3D(-0.0007430699, 0, -0.99999267, 0, 1, 0, 0.99999267, 0, -0.0007430699, 3.98, 0.25, 0.66)
+
+[node name="Car15" parent="paths/Path3D" unique_id=1119231034 instance=ExtResource("9_e3hyu")]
+transform = Transform3D(-0.00074306986, 0, -0.9999926, 0, 1, 0, 0.9999926, 0, -0.00074306986, 3.98, 0.25, 0.66)
+
+[node name="Car16" parent="paths/Path3D" unique_id=562124305 instance=ExtResource("9_e3hyu")]
+transform = Transform3D(-0.00074306986, 0, -0.99999255, 0, 1, 0, 0.99999255, 0, -0.00074306986, 3.98, 0.25, 0.66)
+
+[node name="Car17" parent="paths/Path3D" unique_id=851049707 instance=ExtResource("9_e3hyu")]
+transform = Transform3D(-0.0007430698, 0, -0.9999925, 0, 1, 0, 0.9999925, 0, -0.0007430698, 3.98, 0.25, 0.66)
+
+[node name="Car18" parent="paths/Path3D" unique_id=1440676804 instance=ExtResource("9_e3hyu")]
+transform = Transform3D(-0.00074306974, 0, -0.99999243, 0, 1, 0, 0.99999243, 0, -0.00074306974, 3.98, 0.25, 0.66)
+
+[node name="Car19" parent="paths/Path3D" unique_id=320195258 instance=ExtResource("9_e3hyu")]
+transform = Transform3D(-0.0007430697, 0, -0.9999924, 0, 1, 0, 0.9999924, 0, -0.0007430697, 3.98, 0.25, 0.66)
+
+[node name="Car20" parent="paths/Path3D" unique_id=2096162987 instance=ExtResource("9_e3hyu")]
+transform = Transform3D(-0.0007430697, 0, -0.9999923, 0, 1, 0, 0.9999923, 0, -0.0007430697, 3.98, 0.25, 0.66)
+
+[node name="Car21" parent="paths/Path3D" unique_id=377115981 instance=ExtResource("9_e3hyu")]
+transform = Transform3D(-0.0007430696, 0, -0.99999225, 0, 1, 0, 0.99999225, 0, -0.0007430696, 3.98, 0.25, 0.66)
+
+[node name="Car22" parent="paths/Path3D" unique_id=1585587599 instance=ExtResource("9_e3hyu")]
+transform = Transform3D(-0.00074306957, 0, -0.9999922, 0, 1, 0, 0.9999922, 0, -0.00074306957, 3.98, 0.25, 0.66)
+
+[node name="Car23" parent="paths/Path3D" unique_id=504926329 instance=ExtResource("9_e3hyu")]
+transform = Transform3D(-0.0007430695, 0, -0.99999213, 0, 1, 0, 0.99999213, 0, -0.0007430695, 3.98, 0.25, 0.66)
+
+[node name="Car24" parent="paths/Path3D" unique_id=1927318693 instance=ExtResource("9_e3hyu")]
+transform = Transform3D(-0.0007430695, 0, -0.9999921, 0, 1, 0, 0.9999921, 0, -0.0007430695, 3.98, 0.25, 0.66)
+
+[node name="Car25" parent="paths/Path3D" unique_id=214549448 instance=ExtResource("9_e3hyu")]
+transform = Transform3D(-0.00074306945, 0, -0.999992, 0, 1, 0, 0.999992, 0, -0.00074306945, 3.98, 0.25, 0.66)
+
+[node name="Car26" parent="paths/Path3D" unique_id=882459096 instance=ExtResource("9_e3hyu")]
+transform = Transform3D(-0.0007430694, 0, -0.99999195, 0, 1, 0, 0.99999195, 0, -0.0007430694, 3.98, 0.25, 0.66)
+
+[node name="Car27" parent="paths/Path3D" unique_id=1985176506 instance=ExtResource("9_e3hyu")]
+transform = Transform3D(-0.00074306934, 0, -0.9999919, 0, 1, 0, 0.9999919, 0, -0.00074306934, 3.98, 0.25, 0.66)
+
+[node name="Car28" parent="paths/Path3D" unique_id=194612685 instance=ExtResource("9_e3hyu")]
+transform = Transform3D(-0.00074306934, 0, -0.99999183, 0, 1, 0, 0.99999183, 0, -0.00074306934, 3.98, 0.25, 0.66)
+
+[node name="Car29" parent="paths/Path3D" unique_id=1469239398 instance=ExtResource("9_e3hyu")]
+transform = Transform3D(-0.0007430693, 0, -0.9999918, 0, 1, 0, 0.9999918, 0, -0.0007430693, 3.98, 0.25, 0.66)
+
+[node name="Car30" parent="paths/Path3D" unique_id=1991810972 instance=ExtResource("9_e3hyu")]
+transform = Transform3D(-0.0007430692, 0, -0.9999917, 0, 1, 0, 0.9999917, 0, -0.0007430692, 3.98, 0.25, 0.66)
+
+[node name="Car31" parent="paths/Path3D" unique_id=437365705 instance=ExtResource("9_e3hyu")]
+transform = Transform3D(-0.00074306916, 0, -0.99999166, 0, 1, 0, 0.99999166, 0, -0.00074306916, 3.98, 0.25, 0.66)
+
+[node name="Car32" parent="paths/Path3D" unique_id=1083474250 instance=ExtResource("9_e3hyu")]
+transform = Transform3D(-0.00074306916, 0, -0.9999916, 0, 1, 0, 0.9999916, 0, -0.00074306916, 3.98, 0.25, 0.66)
+
+[node name="Car33" parent="paths/Path3D" unique_id=1259274155 instance=ExtResource("9_e3hyu")]
+transform = Transform3D(-0.0007430691, 0, -0.99999154, 0, 1, 0, 0.99999154, 0, -0.0007430691, 3.98, 0.25, 0.66)
+
+[node name="Car34" parent="paths/Path3D" unique_id=1003294422 instance=ExtResource("9_e3hyu")]
+transform = Transform3D(-0.00074306905, 0, -0.9999915, 0, 1, 0, 0.9999915, 0, -0.00074306905, 3.98, 0.25, 0.66)
+
+[node name="Car35" parent="paths/Path3D" unique_id=80278784 instance=ExtResource("9_e3hyu")]
+transform = Transform3D(-0.000743069, 0, -0.9999914, 0, 1, 0, 0.9999914, 0, -0.000743069, 3.98, 0.25, 0.66)
+
+[node name="Car36" parent="paths/Path3D" unique_id=1192222589 instance=ExtResource("9_e3hyu")]
+transform = Transform3D(-0.00074306893, 0, -0.99999136, 0, 1, 0, 0.99999136, 0, -0.00074306893, 3.98, 0.25, 0.66)
+
+[node name="Car37" parent="paths/Path3D" unique_id=138658435 instance=ExtResource("9_e3hyu")]
+transform = Transform3D(-0.00074306893, 0, -0.9999913, 0, 1, 0, 0.9999913, 0, -0.00074306893, 3.98, 0.25, 0.66)
+
+[node name="Car38" parent="paths/Path3D" unique_id=1426828655 instance=ExtResource("9_e3hyu")]
+transform = Transform3D(-0.0007430689, 0, -0.99999124, 0, 1, 0, 0.99999124, 0, -0.0007430689, 3.98, 0.25, 0.66)
+
+[node name="Car39" parent="paths/Path3D" unique_id=487025444 instance=ExtResource("9_e3hyu")]
+transform = Transform3D(-0.0007430688, 0, -0.9999912, 0, 1, 0, 0.9999912, 0, -0.0007430688, 3.98, 0.25, 0.66)
+
+[node name="Car40" parent="paths/Path3D" unique_id=965492573 instance=ExtResource("9_e3hyu")]
+transform = Transform3D(-0.00074306875, 0, -0.9999911, 0, 1, 0, 0.9999911, 0, -0.00074306875, 3.98, 0.25, 0.66)
 
 [node name="Player" parent="." unique_id=1191188793 instance=ExtResource("2_rwgxs")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.04726076, 0, -0.25134945)

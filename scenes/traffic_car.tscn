@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://437as2nipgpy"]
+
+[ext_resource type="Script" uid="uid://ba8i5yg1hujrx" path="res://scripts/traffic_car.gd" id="1_havqw"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7r4gi"]
+albedo_color = Color(0.19215687, 0.23921569, 1, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_w7kh3"]
+material = SubResource("StandardMaterial3D_7r4gi")
+size = Vector3(0.5, 0.5, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_l7tx4"]
+size = Vector3(0.5, 0.5, 1)
+
+[node name="PathFollow3D" type="PathFollow3D" unique_id=298190989]
+transform = Transform3D(-0.00074307056, 0, -0.9999935, 0, 1, 0, 0.9999935, 0, -0.00074307056, 0, 0, 0)
+v_offset = 0.25
+script = ExtResource("1_havqw")
+
+[node name="RigidBody3D" type="RigidBody3D" parent="." unique_id=1253167549]
+transform = Transform3D(1, 0, 5.820766e-11, 0, 1, 0, -5.820766e-11, 0, 1, 0, 0, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D" unique_id=804849228]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+mesh = SubResource("BoxMesh_w7kh3")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D" unique_id=1554297664]
+shape = SubResource("BoxShape3D_l7tx4")

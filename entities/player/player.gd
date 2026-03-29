@@ -6,6 +6,7 @@ signal pickup_order(order: Order)
 signal deliver_order(order: Order)
 
 @onready var raycast: RayCast3D = $RayCast3D
+@onready var order_success_stream: AudioStreamPlayer3D = $OrderSuccessStream
 
 @onready var interior_root: Node3D = $InteriorRoot
 @onready var exterior_root: Node3D = $ExteriorRoot
@@ -44,8 +45,8 @@ var on_grass := false
 
 # gas
 var gas_station: GasStation = null
-var gas_remaining := 11.0
 var gas_max := 50.0
+var gas_remaining := gas_max * 0.8
 var gas_usage_rate := 1.0
 
 
@@ -114,6 +115,7 @@ func _physics_process(delta: float) -> void:
 			if order and order.status == Order.Status.PENDING:
 				active_orders.push_back(order)
 				start_order.emit(order)
+				$ToneAStream.play()
 		if hud.phone_display.current_app == PhoneDisplay.App.MAP:
 			# TODO: toggle zoom? toggle additional overlay?
 			pass
@@ -199,8 +201,10 @@ func house_area_entered(house: House) -> void:
 	for order in active_orders:
 		if order.status == Order.Status.STARTED and order.pickup_address == house.name:
 			pickup_order.emit(order)
+			$ToneBStream.play()
 		elif order.status == Order.Status.PICKED_UP and order.destination_address == house.name:
 			deliver_order.emit(order)
+			order_success_stream.play()
 			orders_to_remove.push_back(order)
 	for order in orders_to_remove:
 		active_orders.erase(order)

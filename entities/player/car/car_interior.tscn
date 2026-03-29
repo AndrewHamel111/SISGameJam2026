@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dyqb5sj8iq4qt" path="res://resources/glb/phone.glb" id="4_qko6y"]
 [ext_resource type="Script" uid="uid://c4mpw0y112x0w" path="res://entities/player/car/gas_needle.gd" id="5_gb7yy"]
 [ext_resource type="Texture2D" uid="uid://do7w0wc6xjpwq" path="res://resources/png/gas_light.png" id="5_hmpo2"]
+[ext_resource type="AudioStream" uid="uid://b2wkyavy1fx7n" path="res://resources/wav/low_fuel.wav" id="7_qko6y"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hmpo2"]
 albedo_color = Color(1, 0, 0, 1)
@@ -22,6 +23,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.16739835, 0.34647408, 0.280
 
 [node name="phone" parent="." unique_id=497349082 instance=ExtResource("4_qko6y")]
 transform = Transform3D(0.8059898, -0.13447852, -0.5764512, -0.078314915, 0.9410639, -0.32903725, 0.58672583, 0.31034538, 0.7479562, -0.025569137, 0.45374015, 0.17616011)
+visible = false
+
+[node name="gas_light" type="Sprite3D" parent="." unique_id=1772302451]
+transform = Transform3D(-0.026484493, 0.011946652, -0.0074732164, 1.7698264e-09, 0.015910009, 0.025433669, 0.01409154, 0.022453262, -0.014045619, 0.42112082, 0.35610798, 0.32760516)
+modulate = Color(1, 0, 0, 1)
+texture = ExtResource("5_hmpo2")
 
 [node name="gas_needle" type="Node3D" parent="." unique_id=1855330199]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.37186986, 0.36518043, 0.32688832)
@@ -31,9 +38,7 @@ script = ExtResource("5_gb7yy")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.025, 0)
 mesh = SubResource("BoxMesh_qko6y")
 
-[node name="gas_light" type="Sprite3D" parent="gas_needle" unique_id=1772302451]
-transform = Transform3D(-0.03, -1.4963748e-09, 3.0236358e-09, 2.5333176e-09, 0.007764572, 0.028977774, -2.2279625e-09, 0.028977774, -0.007764572, 0.032361716, 0.032019526, -0.030191988)
-modulate = Color(1, 0, 0, 1)
-texture = ExtResource("5_hmpo2")
-
 [node name="car_interior" parent="." unique_id=600284304 instance=ExtResource("2_gb7yy")]
+
+[node name="LowFuelStream" type="AudioStreamPlayer3D" parent="." unique_id=225683568]
+stream = ExtResource("7_qko6y")

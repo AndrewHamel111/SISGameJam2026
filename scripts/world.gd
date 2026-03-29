@@ -131,8 +131,6 @@ func _on_player_deliver_order(order: Order) -> void:
 	update_player_hud()
 
 func _on_order_timeout() -> void:
-	order_timeout.disconnect("timeout", _on_order_timeout)
-	order_timeout = null
 	player_ref.add_rating(-2)
 	player_ref.handle_timeout()
 	get_tree().create_timer(1.0).timeout.connect(add_order)

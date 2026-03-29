@@ -139,10 +139,9 @@ func deal_with_gas(delta: float) -> void:
 		gas_remaining = 0
 
 	if gas_station:
-		if forward_velocity == 0:
+		if forward_velocity == 0 and gas_remaining < gas_max:
 			gas_remaining += gas_station.fill_rate * delta
-			if gas_remaining > gas_max:
-				gas_remaining = gas_max
+			add_money(-gas_station.cost * delta)
 
 func add_money(value: float) -> void:
 	money += value

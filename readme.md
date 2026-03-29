@@ -14,18 +14,20 @@
 
 ordered in descending priority
 
-- [ ] core loop
-  - [ ] order flow
-    - [ ] choose active order from order view
-    - [ ] drive to pickup spot
-    - [ ] drive to destination spot
-    - [ ] earn money from completing orders
-  - [ ] gas up
-    - [ ] filling up with gas costs money
+- [x] core loop
+  - [x] order flow
+    - [x] choose active order from order view
+    - [x] drive to pickup spot
+    - [x] drive to destination spot
+    - [x] earn money from completing orders
+  - [x] gas up
+    - [x] filling up with gas costs money
     - [ ] gassing up needs feedback
-  - [ ] penalties
-    - [ ] failing an order reduces rating on app, leads to lower $$ earned
-- [ ] minimap
+  - [x] penalties
+    - [x] failing an order reduces rating on app, leads to lower $$ earned
+    - [ ] missing feedback for failing orders!
+- [x] minimap
+    - [ ] needs arrow or some indicator of which direction to head
 - [ ] easy graphical wins
   - [ ] improve shadow res / jaggys
   - [ ] minor adjustments to car mesh
@@ -42,7 +44,7 @@ ordered in descending priority
 - [ ] improve car visuals
   - [ ] basic texturing
   - [ ] steering wheel turns
-- [ ] bank app (shows goal and current balance)
+- [x] bank app (shows goal and current balance)
 
 ## Stretch Ideas (post-jam)
 

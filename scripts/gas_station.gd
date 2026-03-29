@@ -2,6 +2,7 @@ class_name GasStation
 extends Node3D
 
 var fill_rate := 5
+var cost := 0.75
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

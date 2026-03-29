@@ -63,6 +63,7 @@ func _process(_delta: float) -> void:
 		toggle_camera_mode()
 
 func _physics_process(delta: float) -> void:
+	set_indexed("global_position:y", 0)
 	max_speed = CAR_MAX_SPEED_WITH_GAS
 	if gas_remaining <= 0.0:
 		max_speed = CAR_MAX_SPEED_NO_GAS

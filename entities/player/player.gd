@@ -31,6 +31,7 @@ const CAR_TURN_SPEED := 10.0
 const MIN_TURN_ANGLE := -1.25
 const MAX_TURN_ANGLE := 1.25
 const CAR_DECELERATION := 2.5
+const CAR_COAST_DECELERATION := 0.5
 const CAR_BRAKING := 10.0
 const CAR_MAX_SPEED_WITH_GAS := 25.0
 const CAR_MAX_SPEED_NO_GAS := 5.0
@@ -43,9 +44,9 @@ var on_grass := false
 
 # gas
 var gas_station: GasStation = null
-var gas_remaining := 20.0
-var gas_max := 20.0
-var gas_usage_rate := 1.1
+var gas_remaining := 50.0
+var gas_max := 50.0
+var gas_usage_rate := 1.0
 
 
 @export var car_acceleration_curve: Curve
@@ -65,26 +66,30 @@ func _physics_process(delta: float) -> void:
 	if on_grass:
 		max_speed = CAR_MAX_SPEED_ON_GRASS
 
+	var max_turn_angle := MAX_TURN_ANGLE if not on_grass else MAX_TURN_ANGLE * 3.0
+	var min_turn_angle := MIN_TURN_ANGLE if not on_grass else MIN_TURN_ANGLE * 3.0
+
 	if Input.is_action_pressed("turn_left"):
 		turn_angle += delta * CAR_TURN_SPEED
-		turn_angle = minf(turn_angle, MAX_TURN_ANGLE)
+		turn_angle = minf(turn_angle, max_turn_angle)
 	elif Input.is_action_pressed("turn_right"):
 		turn_angle -= delta * CAR_TURN_SPEED
-		turn_angle = maxf(turn_angle, MIN_TURN_ANGLE)
+		turn_angle = maxf(turn_angle, min_turn_angle)
 	else:
 		turn_angle = move_toward(turn_angle, 0, delta * CAR_TURN_SPEED)
 
 	if Input.is_action_pressed("accelerate"):
-		if gas_remaining > 0 and not on_grass:
-			forward_velocity += delta * car_acceleration_curve.sample(forward_velocity / max_speed)
-			forward_velocity = minf(forward_velocity, max_speed)
+		if gas_remaining <= 0 or on_grass:
+			forward_velocity = move_toward(forward_velocity, max_speed, delta * CAR_DECELERATION)
 		else:
 			forward_velocity += delta * car_acceleration_curve.sample(forward_velocity / max_speed)
-			forward_velocity = move_toward(forward_velocity, 0, delta * CAR_DECELERATION)
+			forward_velocity = minf(forward_velocity, max_speed)
 	else:
 		var deceleration : float = CAR_BRAKING if Input.is_action_pressed("brake") else CAR_DECELERATION
 		forward_velocity = move_toward(forward_velocity, 0, delta * deceleration)
-	
+
+	#print("Velocity: ", forward_velocity, " Gas: ", gas_remaining)
+
 	if Input.is_action_just_pressed("phone_down"):
 		phone_selected_index += 1
 		phone_selected_index = mini(phone_selected_index, 2)
@@ -116,7 +121,7 @@ func _physics_process(delta: float) -> void:
 		hud.hand_controller.set_pressed(false)
 	
 	if forward_velocity > 0.1:
-		var car_turn_angle := lerpf(turn_angle, turn_angle * 0.5, forward_velocity / max_speed)
+		var car_turn_angle := lerpf(turn_angle, turn_angle * 0.5, forward_velocity / CAR_MAX_SPEED_WITH_GAS)
 		rotate_y(deg_to_rad(car_turn_angle))
 		camera_exterior_root.rotation = Vector3(0, deg_to_rad(turn_angle), 0)
 	
@@ -125,6 +130,7 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 	deal_with_gas(delta)
 	deal_with_grass(delta)
+	deal_with_car_wheel(delta)
 
 func toggle_camera_mode() -> void:
 	camera_mode = not camera_mode
@@ -155,13 +161,21 @@ func deal_with_gas(delta: float) -> void:
 			gas_remaining += gas_station.fill_rate * delta
 			add_money(-gas_station.cost * delta)
 
-func deal_with_grass(delta: float) -> void:
+func deal_with_grass(_delta: float) -> void:
 	if raycast.is_colliding():
 		#print("Colliding with: ", raycast.get_collider())
 		on_grass = false
 	else:
-		print("Off road")
+		#print("Off road")
 		on_grass = true
+
+func deal_with_car_wheel(delta: float) -> void:
+	var wheel := get_node("InteriorRoot/CarInterior/car_wheel") as Node3D
+	var target_rotation := -turn_angle * 0.5 * 180/PI
+	var current_rotation := wheel.rotation_degrees.z
+	var new_rotation := lerpf(current_rotation, target_rotation, delta * 5.0)
+	print("new rot: ", new_rotation)
+	wheel.rotation_degrees.z = new_rotation
 
 func add_money(value: float) -> void:
 	money += value

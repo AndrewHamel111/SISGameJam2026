@@ -3,13 +3,13 @@
 [ext_resource type="Script" uid="uid://bkeh8uyhtg3qs" path="res://scripts/world.gd" id="1_7r4gi"]
 [ext_resource type="PackedScene" uid="uid://0gpemaq84xid" path="res://resources/glb/ground_tile.glb" id="1_nnsk1"]
 [ext_resource type="PackedScene" uid="uid://cc63iy4jodjin" path="res://entities/player/player.tscn" id="2_rwgxs"]
-[ext_resource type="PackedScene" uid="uid://cv7pcmcs3pky4" path="res://resources/glb/road_tile_3int.glb" id="3_71j4m"]
 [ext_resource type="PackedScene" uid="uid://b8egvw7rj2wtb" path="res://scenes/road_tile.tscn" id="4_e3hyu"]
-[ext_resource type="PackedScene" uid="uid://c5qvmpmoa53v5" path="res://resources/glb/road_tile_4int.glb" id="4_qfnet"]
 [ext_resource type="PackedScene" uid="uid://c3h457eqw7pw1" path="res://entities/house/house.tscn" id="5_4mrxx"]
 [ext_resource type="PackedScene" uid="uid://bpt784eyxt3ds" path="res://scenes/hud.tscn" id="5_71j4m"]
 [ext_resource type="PackedScene" uid="uid://b1qr3gehd25ry" path="res://scenes/gas_station.tscn" id="7_i7141"]
-[ext_resource type="Script" path="res://scripts/traffic_car.gd" id="9_w7kh3"]
+[ext_resource type="PackedScene" uid="uid://bfxspo1a1ffbc" path="res://scenes/road_tile_3int.tscn" id="7_q5onr"]
+[ext_resource type="PackedScene" uid="uid://d0e8tkuqsb5v3" path="res://scenes/road_tile_4int.tscn" id="8_jhx03"]
+[ext_resource type="Script" uid="uid://ba8i5yg1hujrx" path="res://scripts/traffic_car.gd" id="9_w7kh3"]
 
 [sub_resource type="Curve" id="Curve_7r4gi"]
 _limits = [0.0, 15.0, 0.0, 5.0]
@@ -867,37 +867,37 @@ transform = Transform3D(1.0000001, 0, -1.475215e-07, 0, 1, 0, 1.3411045e-07, 0, 
 [node name="road_tile120" parent="ground/road_layer" unique_id=1013064889 instance=ExtResource("4_e3hyu")]
 transform = Transform3D(1.0000001, 0, -1.3411045e-07, 0, 1, 0, 1.3411045e-07, 0, 1.0000001, 98.02285, 0, -3.877078)
 
-[node name="road_tile_3int4" parent="ground/road_layer" unique_id=1197714720 instance=ExtResource("3_71j4m")]
+[node name="road_tile_3int4" parent="ground/road_layer" unique_id=1197714720 instance=ExtResource("7_q5onr")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0, 96)
 
-[node name="road_tile_3int5" parent="ground/road_layer" unique_id=1077886985 instance=ExtResource("3_71j4m")]
+[node name="road_tile_3int5" parent="ground/road_layer" unique_id=1077886985 instance=ExtResource("7_q5onr")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 48, 0, 72)
 
-[node name="road_tile_3int7" parent="ground/road_layer" unique_id=1274296037 instance=ExtResource("3_71j4m")]
+[node name="road_tile_3int7" parent="ground/road_layer" unique_id=1274296037 instance=ExtResource("7_q5onr")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 60, 0, 48)
 
-[node name="road_tile_3int6" parent="ground/road_layer" unique_id=1208715652 instance=ExtResource("3_71j4m")]
+[node name="road_tile_3int6" parent="ground/road_layer" unique_id=1208715652 instance=ExtResource("7_q5onr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 48, 0, 24)
 
-[node name="road_tile_3int8" parent="ground/road_layer" unique_id=1725462657 instance=ExtResource("3_71j4m")]
+[node name="road_tile_3int8" parent="ground/road_layer" unique_id=1725462657 instance=ExtResource("7_q5onr")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
 
-[node name="road_tile_3int9" parent="ground/road_layer" unique_id=617661167 instance=ExtResource("3_71j4m")]
+[node name="road_tile_3int9" parent="ground/road_layer" unique_id=617661167 instance=ExtResource("7_q5onr")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 48)
 
-[node name="road_tile_3int10" parent="ground/road_layer" unique_id=1999536696 instance=ExtResource("3_71j4m")]
+[node name="road_tile_3int10" parent="ground/road_layer" unique_id=1999536696 instance=ExtResource("7_q5onr")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 72)
 
-[node name="road_tile_3int2" parent="ground/road_layer" unique_id=58759513 instance=ExtResource("3_71j4m")]
+[node name="road_tile_3int2" parent="ground/road_layer" unique_id=58759513 instance=ExtResource("7_q5onr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 98, 0, -12)
 
-[node name="road_tile_3int3" parent="ground/road_layer" unique_id=1791466307 instance=ExtResource("3_71j4m")]
+[node name="road_tile_3int3" parent="ground/road_layer" unique_id=1791466307 instance=ExtResource("7_q5onr")]
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, 0, -12)
 
-[node name="road_tile_4int" parent="ground/road_layer" unique_id=1663262354 instance=ExtResource("4_qfnet")]
+[node name="road_tile_4int" parent="ground/road_layer" unique_id=1663262354 instance=ExtResource("8_jhx03")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 48, 0, 48)
 
-[node name="road_tile_4int2" parent="ground/road_layer" unique_id=1300087575 instance=ExtResource("4_qfnet")]
+[node name="road_tile_4int2" parent="ground/road_layer" unique_id=1300087575 instance=ExtResource("8_jhx03")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 48, 0, 0)
 
 [node name="buildings" type="Node3D" parent="." unique_id=629702259]
@@ -1188,7 +1188,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.20524, 0, 96.22355)
 curve = SubResource("Curve3D_7r4gi")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="paths/Path3D" unique_id=1118731680]
-transform = Transform3D(-0.00074307376, 0, -0.9999978, 0, 1, 0, 0.9999978, 0, -0.00074307376, 3.98, 0.25, 0.66)
+transform = Transform3D(-0.0007430736, 0, -0.9999976, 0, 1, 0, 0.9999976, 0, -0.0007430736, 3.98, 0.25, 0.66)
 v_offset = 0.25
 script = ExtResource("9_w7kh3")
 
@@ -1196,7 +1196,7 @@ script = ExtResource("9_w7kh3")
 mesh = SubResource("BoxMesh_w7kh3")
 
 [node name="PathFollow3D2" type="PathFollow3D" parent="paths/Path3D" unique_id=1166465212]
-transform = Transform3D(-0.0007430737, 0, -0.99999774, 0, 1, 0, 0.99999774, 0, -0.0007430737, 3.98, 0.25, 0.66)
+transform = Transform3D(-0.0007430736, 0, -0.99999756, 0, 1, 0, 0.99999756, 0, -0.0007430736, 3.98, 0.25, 0.66)
 v_offset = 0.25
 script = ExtResource("9_w7kh3")
 initial_progress = 290.0
@@ -1205,7 +1205,7 @@ initial_progress = 290.0
 mesh = SubResource("BoxMesh_w7kh3")
 
 [node name="PathFollow3D3" type="PathFollow3D" parent="paths/Path3D" unique_id=1094393666]
-transform = Transform3D(-0.00074307364, 0, -0.9999977, 0, 1, 0, 0.9999977, 0, -0.00074307364, 3.98, 0.25, 0.66)
+transform = Transform3D(-0.0007430735, 0, -0.9999975, 0, 1, 0, 0.9999975, 0, -0.0007430735, 3.98, 0.25, 0.66)
 v_offset = 0.25
 script = ExtResource("9_w7kh3")
 initial_progress = 200.0

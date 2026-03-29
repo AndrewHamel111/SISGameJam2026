@@ -41,3 +41,7 @@ transform = Transform3D(-1, -1.7763568e-15, -8.742278e-08, -1.6445838e-08, 0.982
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1245159616]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.1035156e-05, 0.29727173, -0.0017700195)
 shape = SubResource("BoxShape3D_sglur")
+
+[node name="RayCast3D" type="RayCast3D" parent="." unique_id=352589250]
+target_position = Vector3(0, -5, 0)
+collision_mask = 2

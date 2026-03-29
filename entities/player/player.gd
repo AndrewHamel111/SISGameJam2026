@@ -5,6 +5,8 @@ signal start_order(order: Order)
 signal pickup_order(order: Order)
 signal deliver_order(order: Order)
 
+@onready var raycast: RayCast3D = $RayCast3D
+
 @onready var interior_root: Node3D = $InteriorRoot
 @onready var exterior_root: Node3D = $ExteriorRoot
 
@@ -31,10 +33,13 @@ const MAX_TURN_ANGLE := 1.25
 const CAR_DECELERATION := 2.5
 const CAR_BRAKING := 10.0
 const CAR_MAX_SPEED_WITH_GAS := 25.0
-const CAR_MAX_SPEED_NO_GAS := 3.0
+const CAR_MAX_SPEED_NO_GAS := 5.0
+const CAR_MAX_SPEED_ON_GRASS := 5.0
 var max_speed := CAR_MAX_SPEED_WITH_GAS
 var forward_velocity := 0.0
 var turn_angle := 0.0
+
+var on_grass := false
 
 # gas
 var gas_station: GasStation = null
@@ -57,6 +62,8 @@ func _physics_process(delta: float) -> void:
 	max_speed = CAR_MAX_SPEED_WITH_GAS
 	if gas_remaining <= 0.0:
 		max_speed = CAR_MAX_SPEED_NO_GAS
+	if on_grass:
+		max_speed = CAR_MAX_SPEED_ON_GRASS
 
 	if Input.is_action_pressed("turn_left"):
 		turn_angle += delta * CAR_TURN_SPEED
@@ -66,10 +73,14 @@ func _physics_process(delta: float) -> void:
 		turn_angle = maxf(turn_angle, MIN_TURN_ANGLE)
 	else:
 		turn_angle = move_toward(turn_angle, 0, delta * CAR_TURN_SPEED)
-	
+
 	if Input.is_action_pressed("accelerate"):
-		forward_velocity += delta * car_acceleration_curve.sample(forward_velocity / max_speed)
-		forward_velocity = minf(forward_velocity, max_speed)
+		if gas_remaining > 0 and not on_grass:
+			forward_velocity += delta * car_acceleration_curve.sample(forward_velocity / max_speed)
+			forward_velocity = minf(forward_velocity, max_speed)
+		else:
+			forward_velocity += delta * car_acceleration_curve.sample(forward_velocity / max_speed)
+			forward_velocity = move_toward(forward_velocity, 0, delta * CAR_DECELERATION)
 	else:
 		var deceleration : float = CAR_BRAKING if Input.is_action_pressed("brake") else CAR_DECELERATION
 		forward_velocity = move_toward(forward_velocity, 0, delta * deceleration)
@@ -113,6 +124,7 @@ func _physics_process(delta: float) -> void:
 	velocity = basis * Vector3(0, 0, 1) * forward_velocity
 	move_and_slide()
 	deal_with_gas(delta)
+	deal_with_grass(delta)
 
 func toggle_camera_mode() -> void:
 	camera_mode = not camera_mode
@@ -142,6 +154,14 @@ func deal_with_gas(delta: float) -> void:
 		if forward_velocity == 0 and gas_remaining < gas_max:
 			gas_remaining += gas_station.fill_rate * delta
 			add_money(-gas_station.cost * delta)
+
+func deal_with_grass(delta: float) -> void:
+	if raycast.is_colliding():
+		#print("Colliding with: ", raycast.get_collider())
+		on_grass = false
+	else:
+		print("Off road")
+		on_grass = true
 
 func add_money(value: float) -> void:
 	money += value

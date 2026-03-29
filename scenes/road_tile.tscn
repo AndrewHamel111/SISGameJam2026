@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://b8egvw7rj2wtb"]
+
+[ext_resource type="PackedScene" uid="uid://bld0i1ipxocc4" path="res://resources/glb/road_tile.glb" id="1_mgycf"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_mgycf"]
+size = Vector3(3.9995117, 0.395813, 3.999321)
+
+[node name="RoadTile" type="Node3D" unique_id=120436543]
+
+[node name="road_tile" parent="." unique_id=2074611990 instance=ExtResource("1_mgycf")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="road_tile" unique_id=2002075498]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="road_tile/StaticBody3D" unique_id=1682277530]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0014467239, -0.3020935, -0.0032234192)
+shape = SubResource("BoxShape3D_mgycf")

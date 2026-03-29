@@ -6,6 +6,8 @@
 
 **Scope goal:** to build the systems for driving the car, creating the orders and driving to the points to collect and deliver the order. *some upgrades*, and a "lose condition" where you fall below the constantly rising *cost of living* for a fixed amount of time.
 
+![image-20260329144732725](images/image-20260329144732725.png)
+
 ![image-20260328171226966](images/image-20260328171226966.png)
 ![image-20260327203819549](images/image-20260327203819549.png)
 ![image-20260327203516224](images/image-20260327203516224.png)
@@ -29,18 +31,22 @@ ordered in descending priority
 - [x] minimap
     - [ ] needs arrow or some indicator of which direction to head
 
-- [ ] traffic
-- [ ] improve car controls
-  - [ ] move slower on grass
-  - [ ] remove max speed clamp
-  - [ ] car can reverse
-  - [ ] car should stop / lose speed when hitting obstacles
-  - [ ] car should move considerably slower when not on roads
-  - [ ] car turning doesn't feel satisfying
+- [x] traffic
+    - [x] cars have collision
+    - [x] more traffic
+
+- [x] improve car controls
+  - [x] move slower on grass
+  - [x] remove max speed clamp
+  - [x] car can reverse
+  - [x] car should stop / lose speed when hitting obstacles
+  - [x] better braking
+  - [x] car should move considerably slower when not on roads
+  - [x] car turning doesn't feel satisfying
 
 - [ ] improve car visuals
   - [ ] basic texturing
-  - [ ] steering wheel turns
+  - [x] steering wheel turns
 - [x] bank app (shows goal and current balance)
 - [ ] easy graphical wins
   - [ ] improve shadow res / jaggys

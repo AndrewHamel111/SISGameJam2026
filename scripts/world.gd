@@ -131,7 +131,9 @@ func _on_player_deliver_order(order: Order) -> void:
 	update_player_hud()
 
 func _on_order_timeout() -> void:
-	player_ref.add_rating(-2)
-	player_ref.handle_timeout()
-	get_tree().create_timer(1.0).timeout.connect(add_order)
+	for order in player_ref.active_orders:
+		if order.is_expired():
+			player_ref.add_rating(-2)
+			player_ref.handle_timeout()
+			get_tree().create_timer(1.0).timeout.connect(add_order)
 	update_player_hud()

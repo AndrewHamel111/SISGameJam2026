@@ -122,10 +122,12 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("phone_confirm"):
 		hud.hand_controller.set_pressed(true)
 		if hud.phone_display.current_app == PhoneDisplay.App.ORDERS:
-			var order := hud.phone_display.get_order(phone_selected_index)
+			var order_display := hud.phone_display.get_order(phone_selected_index)
+			var order := order_display.order
 			if order and order.status == Order.Status.PENDING:
 				active_orders.push_back(order)
 				start_order.emit(order)
+				order_display.start_order_timer()
 				$ToneAStream.play()
 		if hud.phone_display.current_app == PhoneDisplay.App.MAP:
 			hud.map_view.toggle_zoom()

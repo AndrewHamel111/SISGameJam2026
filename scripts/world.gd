@@ -32,11 +32,9 @@ func setup_game() -> void:
 	player_ref.deliver_order.connect(_on_player_deliver_order)
 	
 	repopulate_names()
-	add_order()
-	add_order()
-	add_order()
+	restock_orders()
 
-func add_order() -> void:
+func restock_orders() -> void:
 	var expired_orders: Array[Order]
 	for node in available_offers_root.get_children():
 		var order := node as Order
@@ -45,6 +43,10 @@ func add_order() -> void:
 	for order in expired_orders:
 		available_offers_root.remove_child(order)
 		order.free()
+	while available_offers_root.get_child_count() < 3:
+		add_order()
+
+func add_order() -> void:
 	available_offers_root.add_child(create_new_order())
 	update_player_hud()
 
@@ -68,7 +70,7 @@ func create_new_order() -> Order:
 	order.destination_street_name = destination.street_name
 	
 	order.value = get_next_order_value()
-	order.duration = get_next_order_duration()
+	order.duration = 35.0
 	
 	return order
 
@@ -85,7 +87,8 @@ func get_destination_for(house: House) -> House:
 	while !value:
 		var candidate := houses.pick_random() as House
 		var invalid := candidate == house or \
-			candidate.global_position.distance_squared_to(house.global_position) < ORDER_MIN_SQR_DIST
+			candidate.global_position.distance_squared_to(house.global_position) < ORDER_MIN_SQR_DIST or \
+			candidate.street_name == house.street_name
 		if invalid:
 			continue
 		value = candidate
@@ -127,7 +130,7 @@ func _on_player_deliver_order(order: Order) -> void:
 	destination.show_collider(false)
 	player_ref.add_money(order.value)
 	player_ref.add_rating(1)
-	get_tree().create_timer(1.0).timeout.connect(add_order)
+	get_tree().create_timer(1.0).timeout.connect(restock_orders)
 	update_player_hud()
 
 func _on_order_timeout() -> void:
@@ -135,5 +138,5 @@ func _on_order_timeout() -> void:
 		if order.is_expired():
 			player_ref.add_rating(-2)
 			player_ref.handle_timeout()
-			get_tree().create_timer(1.0).timeout.connect(add_order)
+			get_tree().create_timer(1.0).timeout.connect(restock_orders)
 	update_player_hud()

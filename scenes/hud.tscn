@@ -76,8 +76,10 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -40.0
-offset_top = -40.0
+offset_left = -81.0
+offset_top = -39.99994
+offset_right = -41.0
+offset_bottom = 6.1035156e-05
 grow_horizontal = 0
 grow_vertical = 0
 scale = Vector2(1.75, 1.75)
@@ -284,11 +286,11 @@ texture = ExtResource("8_5n1hp")
 
 [node name="HandController" type="Control" parent="PhoneDisplay" unique_id=870589063]
 anchors_preset = 0
-offset_right = 40.0
+offset_left = 12.000001
+offset_right = 52.0
 offset_bottom = 40.0
 scale = Vector2(0.115, 0.115)
 script = ExtResource("4_047uy")
-metadata/_edit_lock_ = true
 
 [node name="TextureRect" type="TextureRect" parent="PhoneDisplay/HandController" unique_id=794678660]
 z_index = -1

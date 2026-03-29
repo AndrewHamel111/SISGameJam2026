@@ -28,16 +28,25 @@ static var status_color: Dictionary[Order.Status, Color] = {
 }
 
 func add_order(order_details: Order) -> void:
+	for node in vbox.get_children():
+		if (node as OrderDisplay).order == order_details:
+			return
 	var node := order_display.instantiate() as OrderDisplay
 	node.set_order(order_details)
 	node.color = status_color[order_details.status]
 	#node.set_indexed("modulate:a", 0.5)
 	vbox.add_child(node)
 
+var current_order_search : Order
+func display_matches_order(display: OrderDisplay) -> bool:
+	return display.order == current_order_search
+
 func set_orders(orders_root: Node) -> void:
 	for node in vbox.get_children():
-		vbox.remove_child(node)
-		node.queue_free()
+		var display := node as OrderDisplay
+		if not orders_root.get_children().has(display.order):
+			vbox.remove_child(node)
+			node.queue_free()
 	for child in orders_root.get_children():
 		if not child is Order:
 			push_error("Node which is not Order is child of /root/World/Orders !")
@@ -58,12 +67,12 @@ func select_order(index: int) -> void:
 			selected.set_indexed("modulate:a", 1.0)
 			#selected.color = Color.LIGHT_CYAN
 
-func get_order(index: int) -> Order:
+func get_order(index: int) -> OrderDisplay:
 	var children := vbox.get_children()
 	if index >= children.size():
 		push_error("Tried to get_order for an index (%d) exceeding the order slots on the phone!" % [index])
 		return null
-	return (children[index] as OrderDisplay).order
+	return children[index] as OrderDisplay
 
 func set_rating(rating: int) -> void:
 	var gold_star_root : Node = $TextureRect/OrdersView/HBoxContainer

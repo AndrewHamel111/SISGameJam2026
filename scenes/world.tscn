@@ -9,8 +9,8 @@
 [ext_resource type="PackedScene" uid="uid://b1qr3gehd25ry" path="res://scenes/gas_station.tscn" id="7_i7141"]
 [ext_resource type="PackedScene" path="res://scenes/road_tile_3int.tscn" id="7_q5onr"]
 [ext_resource type="PackedScene" path="res://scenes/road_tile_4int.tscn" id="8_jhx03"]
-[ext_resource type="PackedScene" uid="uid://ctbrd31bnh442" path="res://scenes/road_loop_north_bay.tscn" id="9_e3hyu"]
-[ext_resource type="PackedScene" uid="uid://bx8ayl36dcrj0" path="res://scenes/road_loop_windsor.tscn" id="10_e3hyu"]
+[ext_resource type="PackedScene" path="res://scenes/road_loop_north_bay.tscn" id="9_e3hyu"]
+[ext_resource type="PackedScene" path="res://scenes/road_loop_windsor.tscn" id="10_e3hyu"]
 
 [sub_resource type="Curve" id="Curve_7r4gi"]
 _limits = [0.0, 15.0, 0.0, 5.0]
@@ -1035,34 +1035,34 @@ transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 72.0
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 80.005745, 0, 8.002373)
 
 [node name="1170Liberation" parent="buildings" unique_id=684330461 instance=ExtResource("5_4mrxx")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 8.005745, 0, -23.997627)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 8.005745, 0, -23.997627)
 
 [node name="1172Liberation" parent="buildings" unique_id=1766937582 instance=ExtResource("5_4mrxx")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 16.005745, 0, -23.997627)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 16.005745, 0, -23.997627)
 
 [node name="1174Liberation" parent="buildings" unique_id=300317723 instance=ExtResource("5_4mrxx")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 24.005745, 0, -23.997627)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 24.005745, 0, -23.997627)
 
 [node name="1176Liberation" parent="buildings" unique_id=375834533 instance=ExtResource("5_4mrxx")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 32.005745, 0, -23.997627)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 32.005745, 0, -23.997627)
 
 [node name="1178Liberation" parent="buildings" unique_id=528640461 instance=ExtResource("5_4mrxx")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 40.005745, 0, -23.997627)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 40.005745, 0, -23.997627)
 
 [node name="1180Liberation" parent="buildings" unique_id=45896499 instance=ExtResource("5_4mrxx")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 48.005745, 0, -23.997627)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 48.005745, 0, -23.997627)
 
 [node name="1182Liberation" parent="buildings" unique_id=754438761 instance=ExtResource("5_4mrxx")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 56.005745, 0, -23.997627)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 56.005745, 0, -23.997627)
 
 [node name="1184Liberation" parent="buildings" unique_id=2035830195 instance=ExtResource("5_4mrxx")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 64.005745, 0, -23.997627)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 64.005745, 0, -23.997627)
 
 [node name="1186Liberation" parent="buildings" unique_id=278655361 instance=ExtResource("5_4mrxx")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 72.005745, 0, -23.997627)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 72.005745, 0, -23.997627)
 
 [node name="1188Liberation" parent="buildings" unique_id=2138456466 instance=ExtResource("5_4mrxx")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 80.005745, 0, -23.997627)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 80.005745, 0, -23.997627)
 
 [node name="891Joyless" parent="buildings" unique_id=1442057982 instance=ExtResource("5_4mrxx")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 8.005745, 0, -39.997627)

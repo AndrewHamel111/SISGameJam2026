@@ -12,15 +12,15 @@ font_size = 8
 font_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_047uy"]
-font_size = 9
+font_size = 8
 font_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_qyfn3"]
+font_size = 14
 font_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_5pdws"]
 font_size = 10
-font_color = Color(0, 0, 0, 1)
 
 [node name="ColorRect" type="ColorRect" unique_id=1483125797]
 custom_minimum_size = Vector2(0, 45)
@@ -39,57 +39,51 @@ label_settings = SubResource("LabelSettings_0m4u7")
 
 [node name="OrderDestination" type="Label" parent="." unique_id=1829727098]
 layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_left = 1.9999999
-offset_top = -22.857143
-offset_right = 42.0
-offset_bottom = 0.1428566
-grow_vertical = 0
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -73.0
+offset_top = 11.0
+offset_bottom = 34.0
+grow_horizontal = 0
 text = "0000 STREET AVE"
 label_settings = SubResource("LabelSettings_047uy")
+horizontal_alignment = 2
 vertical_alignment = 2
 
 [node name="Value" type="Label" parent="." unique_id=96743615]
 layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -40.0
-offset_bottom = 23.0
-grow_horizontal = 0
+offset_top = 10.0
+offset_right = 41.0
+offset_bottom = 33.0
 text = "$5.50"
 label_settings = SubResource("LabelSettings_qyfn3")
-horizontal_alignment = 2
 
 [node name="Duration" type="Label" parent="." unique_id=1410466137]
 layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
+anchors_preset = 2
 anchor_top = 1.0
-anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -40.0
+offset_left = 12.0
 offset_top = -23.0
-grow_horizontal = 0
+offset_right = 33.0
 grow_vertical = 0
 text = "10m"
 label_settings = SubResource("LabelSettings_5pdws")
-horizontal_alignment = 2
 vertical_alignment = 2
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=145025056]
 texture_filter = 1
 layout_mode = 0
-offset_left = 59.0
+offset_left = 2.0
 offset_top = 34.0
-offset_right = 99.00001
+offset_right = 42.00003
 offset_bottom = 74.0
 scale = Vector2(0.21561477, 0.21561477)
 texture = ExtResource("2_cva5s")
 
 [node name="TextureRect2" type="TextureRect" parent="." unique_id=74551130]
+visible = false
 texture_filter = 1
 layout_mode = 0
 offset_left = 57.428566
@@ -100,6 +94,7 @@ scale = Vector2(0.21561477, 0.21561477)
 texture = ExtResource("3_1l38u")
 
 [node name="TextureRect3" type="TextureRect" parent="." unique_id=1943515076]
+visible = false
 texture_filter = 1
 layout_mode = 0
 offset_left = 56.285706
@@ -110,6 +105,7 @@ scale = Vector2(0.21561477, 0.21561477)
 texture = ExtResource("4_x4xi8")
 
 [node name="TextureRect4" type="TextureRect" parent="." unique_id=672050150]
+visible = false
 texture_filter = 1
 layout_mode = 0
 offset_left = 54.571426

@@ -44,7 +44,7 @@ var on_grass := false
 
 # gas
 var gas_station: GasStation = null
-var gas_remaining := 50.0
+var gas_remaining := 11.0
 var gas_max := 50.0
 var gas_usage_rate := 1.0
 
@@ -180,7 +180,7 @@ func deal_with_car_wheel(delta: float) -> void:
 	var target_rotation := -turn_angle * 0.5 * 180/PI
 	var current_rotation := wheel.rotation_degrees.z
 	var new_rotation := lerpf(current_rotation, target_rotation, delta * 5.0)
-	print("new rot: ", new_rotation)
+	#print("new rot: ", new_rotation)
 	wheel.rotation_degrees.z = new_rotation
 
 func add_money(value: float) -> void:

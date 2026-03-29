@@ -47,7 +47,7 @@ func next_swipe_frame() -> void:
 	texrect_back.texture = hand_library.swipe_back[anim_frame]
 	texrect_front.texture = hand_library.swipe_front[anim_frame]
 	anim_frame += 1 if swipe_anim == Pose.SWIPE_LEFT else -1
-	get_tree().create_timer(0.1).timeout.connect(next_swipe_frame)
+	get_tree().create_timer(0.05).timeout.connect(next_swipe_frame)
 
 func set_pressed(pressed: bool) -> void:
 	if pressed:

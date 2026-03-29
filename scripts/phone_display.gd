@@ -3,6 +3,19 @@ extends Control
 
 @onready var vbox: VBoxContainer = $TextureRect/OrdersView/VBoxContainer
 @onready var order_display : PackedScene = load("res://scenes/order_display.tscn")
+@onready var app_views: Array[Control] = [
+	$TextureRect/OrdersView,
+	$TextureRect/MapView
+]
+
+enum App
+{
+	ORDERS = 0,
+	MAP,
+	COUNT,
+}
+
+var current_app: int = App.ORDERS as int
 
 static var status_color: Dictionary[Order.Status, Color] = {
 	Order.Status.PENDING: Color.LIGHT_GRAY,
@@ -47,3 +60,15 @@ func get_order(index: int) -> Order:
 		push_error("Tried to get_order for an index (%d) exceeding the order slots on the phone!" % [index])
 		return null
 	return (children[index] as OrderDisplay).order
+
+func scroll_apps(direction: int) -> void:
+	current_app += 1
+	if current_app == App.COUNT as int:
+		current_app = 0
+	elif current_app == -1:
+		current_app = (App.COUNT as int) - 1
+	
+	for view in app_views:
+		view.hide()
+	
+	app_views[current_app].show()

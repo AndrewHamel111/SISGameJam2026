@@ -1,4 +1,4 @@
-extends Node2D
+extends Control
 
 var minimap_camera: Camera3D
 var player: Node3D

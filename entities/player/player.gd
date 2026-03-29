@@ -85,8 +85,10 @@ func _physics_process(delta: float) -> void:
 		hud.phone_display.select_order(phone_selected_index)
 	if Input.is_action_just_pressed("phone_left"):
 		hud.hand_controller.set_pose(HandController.Pose.SWIPE_LEFT)
+		hud.phone_display.scroll_apps(-1)
 	elif Input.is_action_just_pressed("phone_right"):
 		hud.hand_controller.set_pose(HandController.Pose.SWIPE_RIGHT)
+		hud.phone_display.scroll_apps(1)
 	
 	if Input.is_action_just_pressed("phone_confirm"):
 		hud.hand_controller.set_pressed(true)
